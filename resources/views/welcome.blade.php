@@ -19,19 +19,23 @@
 
 <body class="antialiased">
     {{-- LIVEWIRE COMPONENTS --}}
-    @livewire('test-component')
+    @livewire('inline.modal')
+
+    {{ $slot }}
 
 
 
+    
+    {{-- WIREUI --}}
+    <wireui:scripts /> {{-- OR @wireUiScripts --}}
 
     {{-- ALPINE JS --}}
     @vite('resources/js/app.js')
 
-    {{-- WIREUI --}}
-    <wireui:scripts /> {{-- OR @wireUiScripts --}}
-
     {{-- LIVEWIRE --}}
     @livewireScripts
+
+    @stack('component-script')
 </body>
 
 </html>
