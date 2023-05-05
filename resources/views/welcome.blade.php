@@ -23,6 +23,9 @@
 
     {{ $slot }}
 
+    <button id="Test">DAADA</button>
+    <button id="Test">DADADA</button>
+
 
 
     

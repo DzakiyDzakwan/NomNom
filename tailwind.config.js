@@ -11,6 +11,14 @@ module.exports = {
         "./vendor/wireui/wireui/ts/**/*.ts",
         "./vendor/wireui/wireui/src/View/**/*.php",
     ],
+    fontFamily: {
+        'sans': ['Pontano Sans', 'sans-serif'],
+        'serif': ['ui-serif', 'Georgia'],
+        'mono': ['ui-monospace', 'SFMono-Regular'],
+    },
+    presets: [
+        require('./vendor/wireui/wireui/tailwind.config.js')
+    ],
     presets: [require("./vendor/wireui/wireui/tailwind.config.js")],
     theme: {
         // extend: {
