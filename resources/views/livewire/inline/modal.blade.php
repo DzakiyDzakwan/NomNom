@@ -1,5 +1,5 @@
 <div x-data="modal">
-    <x-button outline zinc label="Zinc" @click="ToggleModal" />
+    <x-button outline zinc label="Zinc" class="font-sans" @click="ToggleModal" />
 
     <x-modal blur="3xl" wire:model.defer="simpleModal">
         <x-card title="Consent Terms">
@@ -13,12 +13,19 @@
                     <x-button primary label="I Agree" />
                 </div>
             </x-slot>
+
+            <x-dropdown>
+                <x-dropdown.item label="Settings" />
+                <x-dropdown.item label="My Profile" />
+                <x-dropdown.item label="Logout" />
+            </x-dropdown>
         </x-card>
     </x-modal>
 </div>
 
 @push('component-script')
     <script>
+        Wireui.hook('load', () => console.log('wireui is ready to use'))
         document.addEventListener('alpine:init', () => 
         {
             Alpine.data('modal', () => (
