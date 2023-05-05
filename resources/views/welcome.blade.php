@@ -19,16 +19,11 @@
 
 <body class="antialiased">
     {{-- LIVEWIRE COMPONENTS --}}
-    @livewire('inline.modal')
-
+    {{-- @livewire('inline.modal') --}}
     {{ $slot }}
 
-    <button id="Test">DAADA</button>
-    <button id="Test">DADADA</button>
 
 
-
-    
     {{-- WIREUI --}}
     <wireui:scripts /> {{-- OR @wireUiScripts --}}
 

@@ -10,6 +10,6 @@ class Modal extends Component
 
     public function render()
     {
-        return view('livewire.inline.modal');
+        return view('livewire.inline.modal')->layout('welcome');
     }
 }
