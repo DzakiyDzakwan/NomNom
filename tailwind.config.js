@@ -20,7 +20,20 @@ module.exports = {
         require('./vendor/wireui/wireui/tailwind.config.js')
     ],
     presets: [require("./vendor/wireui/wireui/tailwind.config.js")],
+    
+    colors: {
+        primary: '#FFB03E',
+        yellow: '#FFC93F'
+    },
     theme: {
+        fill: theme => ({
+            'gray': theme('colors.gray.400'),
+            'red': theme('colors.red.500'),
+            'green': theme('colors.green.500'),
+            'blue': theme('colors.blue.500'),
+            'yellow': theme('colors.yellow.500'),
+            'primary' : theme('colors.primary.500'),
+        })
         // extend: {
         //     colors: {
         //         primary: colors.indigo,
@@ -32,6 +45,12 @@ module.exports = {
         //     },
         // },
     },
+    variants: {
+        extend: {
+            display: ['group-focus']
+        },
+    },
+
     plugins: [
         require("@tailwindcss/forms"),
         require("@tailwindcss/aspect-ratio"),

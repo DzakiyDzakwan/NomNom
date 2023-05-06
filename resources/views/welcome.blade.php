@@ -21,7 +21,8 @@
     {{-- LIVEWIRE COMPONENTS --}}
     {{-- @livewire('inline.modal') --}}
     {{ $slot }}
-
+    @livewire('inline.filter-button')
+    @livewire('inline.card')
 
 
     {{-- WIREUI --}}
