@@ -21,8 +21,22 @@
     {{-- LIVEWIRE COMPONENTS --}}
     {{-- @livewire('inline.modal') --}}
     {{ $slot }}
-    @livewire('inline.filter-button')
-    @livewire('inline.card')
+    
+    {{-- Kategori Card --}}
+    @livewire('inline.category-card')
+
+    {{-- Rekomendasi Resep Card --}}
+    <div class="flex flex-col text-center w-full mt-12">
+      <h1 class="sm:text-3xl text-2xl font-bold title-font text-gray-900">Rekomendasi Resep</h1>
+    </div>
+    <div class="container px-10 mt-6 mx-auto mb-12">
+        <div class="flex flex-wrap -m-4">
+            @livewire('inline.card')
+            @livewire('inline.card')
+            @livewire('inline.card')
+            @livewire('inline.card')
+        </div>
+    </div>
 
 
     {{-- WIREUI --}}
