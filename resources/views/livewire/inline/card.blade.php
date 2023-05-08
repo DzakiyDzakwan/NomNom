@@ -1,29 +1,32 @@
 <div class="px-2 py-2 md:w-1/4 lg:w-1/4 sm:w-1/2">
-  <div class="h-full border-2 rounded-2xl overflow-hidden shadow-md">
-    {{-- Dropdown dots --}}
-    <div class="flex items-center wrap mt-1">
-      <div class="lg:ml-auto md:ml-0 ml-auto pr-2">
-        <x-slot name="trigger">
-          <x-button label="Options" icon="dots-horizontal"/>
-        </x-slot>
-        <x-dropdown>
-          <x-dropdown.item label="Sembunyikan" />
-          <x-dropdown.item label="Laporkan" />
-          <x-dropdown.item label="Blokir" />
-        </x-dropdown>
+  <div class="h-full rounded-2xl overflow-hidden shadow-md bg-white">
+
+    <div class="flex relative">
+      <div class="relative py-1 z-10 tracking-widest w-full opacity-100 rounded-2xl">
+        <div class="flex items-center py-36 pt-1 pr-2">
+          <div class="lg:ml-auto md:ml-0 ml-auto px-2 py-1 bg-white opacity-100 rounded-full justify">
+            <x-slot name="trigger">
+              <x-button label="Options"/>
+            </x-slot>
+            <x-dropdown>
+              <x-dropdown.item label="Sembunyikan" />
+              <x-dropdown.item label="Laporkan" />
+              <x-dropdown.item label="Blokir" />
+            </x-dropdown>
+          </div>
+        </div>
       </div>
-    </div>
 
     {{-- Image --}}
-    <div class="flex wrap px-3">
-      <img class="lg:h-48 md:h-48 w-full object-center rounded-2xl" src="{{ asset('assets/images/card-image.jpg') }}" alt="blog">
+      <img class="lg:h-48 md:h-48 w-full absolute object-center object-cover inset-0 h-full object-center" src="{{ asset('assets/images/card-image.jpg') }}" alt="blog">
     </div>
+    
 
     {{-- Title, icon --}}
     <div class="px-3">
       <div class="flex items-center flex-wrap mt-2">
-        <h1 class="title-font text-lg font-semibold text-gray-900">Ayam Geprek</h1>
-        <button class="border-2 border-opacity-100 rounded-full px-1 py-1 shadow-md lg:ml-auto md:ml-0 ml-auto">
+        <h1 class="title-font text-lg font-bold text-gray-800">Ayam Geprek</h1>
+        <button class="mt-1 border-2 border-opacity-100 rounded-full px-1 py-1 shadow-md lg:ml-auto md:ml-0 ml-auto">
           <svg class="h-7 w-7 fill-gray hover:fill-yellow focus:fill-yellow active:fill-yellow" viewBox="0 0 20 20">
             <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"/>
           </svg>

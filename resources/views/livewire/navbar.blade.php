@@ -2,7 +2,7 @@
     <nav class="p-5 bg-white shadow-xl md:flex md:items-center md:justify-between h-[72px]">
         <div class="flex justify-between items-center ">
           <span class="text-2xl font-[Poppins] cursor-pointer">
-            <img class="h-10 inline md:w-[146px] md:h-[55px]"
+            <img class="h-10 inline md:w-[121px] md:h-[46px]"
               src="{{ asset('assets/images/logo/logo3.png') }}">
           </span>
           <span class="text-3xl cursor-pointer mx-2 md:hidden block">
