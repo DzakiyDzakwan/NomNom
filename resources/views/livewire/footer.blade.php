@@ -1,5 +1,5 @@
 <div>
-    <footer class="bg-[#262626] fixed bottom-0 w-full">
+    <footer class="bg-[#262626] bottom-0 w-full">
         <div class="mx-auto w-full max-w-screen-xl py-6 lg:py-8 px-28">
             <div class="md:flex">
               <div class="mb-6 md:mb-0 md:w-[520px] ml-24">

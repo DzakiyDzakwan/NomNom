@@ -14,7 +14,6 @@
 <body>
 
     <div class="px-[40px] my-4">
-
         @livewire('button', ['label' => 'Lihat Lainnya', 'identifier' => 'btnAlert'])
     </div>
 

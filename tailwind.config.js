@@ -93,14 +93,12 @@ module.exports = {
                     },
                 },
                 ".btn": {
-                    padding: "1rem 8rem",
+                    padding: "0.5rem 4rem",
                     textAlign: "center",
                     width: "fit-content",
                     fontSize: "18px",
-                    fontWeigth: "semibold",
                     borderRadius: "50px",
-                    backgroundColor: "#FFB03E",
-                    "@screen md": {},
+                    backgroundColor: "@screen md",
                 },
                 ".modal-container": {
                     width: "100%",

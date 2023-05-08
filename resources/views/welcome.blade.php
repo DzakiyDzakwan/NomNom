@@ -17,27 +17,45 @@
     @livewireStyles
 </head>
 
-<body class="antialiased">
+<body class="antialiased bg-[#f3f3f3]">
     {{-- LIVEWIRE COMPONENTS --}}
     {{-- @livewire('inline.modal') --}}
     {{ $slot }}
-    
-    {{-- Kategori Card --}}
-    @livewire('inline.category-card')
+
+    <div class="bg-[url('../../public/assets/images/bg-hero.jpg')] bg-no-repeat bg-top bg-contain">
+        {{-- Navbar --}}
+        @livewire('navbar')
+
+        {{-- Hero Section --}}
+        @livewire('inline.hero-section')
+
+        {{-- Kategori Card --}}
+        @livewire('inline.category-card')
+        <div class="text-center mt-9">
+            @livewire('button', ['label' => 'Lihat Lainnya', 'identifier' => 'btnAlert'])
+        </div>
+    </div>
 
     {{-- Rekomendasi Resep Card --}}
     <div class="flex flex-col text-center w-full mt-12">
       <h1 class="sm:text-3xl text-2xl font-bold title-font text-gray-900">Rekomendasi Resep</h1>
     </div>
-    <div class="container px-10 mt-6 mx-auto mb-12">
+    <div class="container px-10 mt-6 mx-auto">
         <div class="flex flex-wrap -m-4">
-            @livewire('inline.card')
-            @livewire('inline.card')
-            @livewire('inline.card')
-            @livewire('inline.card')
+            @for ($i = 0; $i < 8; $i++)
+                @livewire('inline.card')
+            @endfor
         </div>
     </div>
+    <div class="text-center mt-9">
+        @livewire('button', ['label' => 'Lihat Lainnya', 'identifier' => 'btnAlert'])
+    </div>
 
+    {{-- FAQ--}}
+    @livewire('inline.faq')
+
+    {{-- Footer --}}
+    @livewire('footer')
 
     {{-- WIREUI --}}
     <wireui:scripts /> {{-- OR @wireUiScripts --}}
