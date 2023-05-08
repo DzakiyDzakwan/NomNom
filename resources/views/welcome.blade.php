@@ -47,9 +47,10 @@
             @endfor
         </div>
     </div>
-    <div class="text-center mt-9">
+    @livewire('pagination')
+    {{-- <div class="text-center mt-9">
         @livewire('button', ['label' => 'Lihat Lainnya', 'identifier' => 'btnAlert'])
-    </div>
+    </div> --}}
 
     {{-- FAQ--}}
     @livewire('inline.faq')
