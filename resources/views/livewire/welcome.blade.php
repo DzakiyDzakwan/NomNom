@@ -24,6 +24,8 @@
         </div>
     </section>
 
+    @livewire('pagination')
+
     <div class="text-center mt-9">
         <x-button type="regular" :with-gradient=false text="Lihat Lainnya"></x-button>
     </div>
