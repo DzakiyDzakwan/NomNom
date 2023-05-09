@@ -125,7 +125,7 @@ return [
         ],
         'button' => [
             'class' => Components\Button::class,
-            'alias' => 'button',
+            'alias' => 'button-ui',
         ],
         'button.circle' => [
             'class' => Components\CircleButton::class,
@@ -189,7 +189,7 @@ return [
         ],
         'modal' => [
             'class' => Components\Modal::class,
-            'alias' => 'modal',
+            'alias' => 'modal-ui',
         ],
         'modal.card' => [
             'class' => Components\ModalCard::class,
