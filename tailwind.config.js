@@ -11,20 +11,7 @@ module.exports = {
         "./vendor/wireui/wireui/ts/**/*.ts",
         "./vendor/wireui/wireui/src/View/**/*.php",
     ],
-    fontFamily: {
-        'sans': ['Pontano Sans', 'sans-serif'],
-        'serif': ['ui-serif', 'Georgia'],
-        'mono': ['ui-monospace', 'SFMono-Regular'],
-    },
-    presets: [
-        require('./vendor/wireui/wireui/tailwind.config.js')
-    ],
     presets: [require("./vendor/wireui/wireui/tailwind.config.js")],
-    
-    colors: {
-        primary: '#FFB03E',
-        yellow: '#FFC93F'
-    },
     theme: {
         fill: theme => ({
             'gray': theme('colors.gray.400'),
@@ -50,7 +37,6 @@ module.exports = {
             display: ['group-focus']
         },
     },
-
     plugins: [
         require("@tailwindcss/forms"),
         require("@tailwindcss/aspect-ratio"),
@@ -75,23 +61,23 @@ module.exports = {
                 ".card-body": {
                     backgroundColor: "#F0F0F0",
                 },
-                ".image-container": {
-                    width: "128px",
-                    height: "128px",
-                    display: "flex",
-                    "@screen md": {
-                        width: "262px",
-                        height: "262px",
-                    },
-                },
-                ".image-card": {
-                    width: "64px",
-                    height: "64px",
-                    "@screen md": {
-                        width: "128px",
-                        height: "128px",
-                    },
-                },
+                // ".image-container": {
+                //     width: "128px",
+                //     height: "128px",
+                //     display: "flex",
+                //     "@screen md": {
+                //         width: "262px",
+                //         height: "262px",
+                //     },
+                // },
+                // ".image-card": {
+                //     width: "64px",
+                //     height: "64px",
+                //     "@screen md": {
+                //         width: "128px",
+                //         height: "128px",
+                //     },
+                // },
                 ".btn": {
                     padding: "0.5rem 4rem",
                     textAlign: "center",
@@ -99,24 +85,6 @@ module.exports = {
                     fontSize: "18px",
                     borderRadius: "50px",
                     backgroundColor: "@screen md",
-                },
-                ".modal-container": {
-                    width: "100%",
-                    height: "100%",
-                    border: "1px solid",
-                    backgroundColor: "rgb(240,240,240,50%)",
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    zIndex: 10,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                },
-                ".modal": {
-                    padding: "0.5rem",
-                    backgroundColor: "#FFFF",
-                    boxShadow: "2px 2px 10px 5px rgb(0, 0, 0, 0.025)",
                 },
             });
         },

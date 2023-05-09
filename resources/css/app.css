@@ -1,9 +1,54 @@
-@import url("https://fonts.googleapis.com/css2?family=Pontano+Sans:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base
+{
+    html, body
+    {
+        font-family: Poppins !important;
+    }
+}
 
-    /* html {
-        font-family: 'Pontano Sans';
-    } */
+@layer components
+{
+    [x-cloak] { display: none !important; }
+
+    .modal-backdrop
+    {
+        @apply 
+            fixed 
+            inset-0 
+            bg-secondary dark:bg-secondary 
+            bg-opacity-60 dark:bg-opacity-60 
+            transform 
+            transition-opacity 
+            duration-500
+    }
+
+    .modal-container
+    {
+        @apply
+            w-full 
+            min-h-full 
+            transform 
+            flex 
+            items-end 
+            justify-center 
+            mx-auto 
+            sm:items-start 
+            sm:max-w-2xl
+    }
+
+    .modal
+    {
+        @apply
+            w-full 
+            flex 
+            flex-col 
+            shadow-md 
+            rounded-lg 
+            bg-plain 
+            /* dark:bg-secondary  */
+    }
+}
