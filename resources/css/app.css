@@ -37,7 +37,7 @@
             justify-center 
             mx-auto 
             sm:items-start 
-            sm:max-w-2xl
+            sm:max-w-lg
     }
 
     .modal
@@ -49,6 +49,6 @@
             shadow-md 
             rounded-lg 
             bg-plain 
-            /* dark:bg-secondary  */
+            dark:bg-secondary 
     }
 }

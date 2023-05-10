@@ -11,7 +11,7 @@ class Button extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $type, public bool $withGradient = false, public string $text)
+    public function __construct(public string $type, public bool $withGradient = false, public string $text, public string $innerClass = "")
     {
     }
 

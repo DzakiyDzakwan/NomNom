@@ -1,7 +1,7 @@
-<div {{ $attributes->merge(['class' => 'fixed inset-0 overflow-y-auto p-4 z-50 ' . $name]) }} x-cloak x-data="$store.{{ $name }}" x-show="open">
+<div {{ $attributes->merge(['class' => 'fixed inset-0 overflow-y-auto p-4 z-50 ' . $name]) }} x-data="$store.{{ $name }}" x-show="open" x-cloak x-transition:enter.duration.250ms x-transition:leave.duration.500ms>
     <div class="modal-backdrop"></div>
-    <div class="modal-container">
-        <div class="modal">
+    <div class="modal-container" >
+        <div class="modal" x-transition.duration.150ms>
             {{ $slot }}
         </div>
     </div>
@@ -11,12 +11,12 @@
     <script>
         document.addEventListener('alpine:init', () => 
         {
-            console.log(`{{ $attributes['counter'] }}`)
+            // console.log(`{{ $attributes['counter'] }}`)
 
             Alpine.store(`{{ $name }}`,
             {
                 open: false,
-                model: "Some Text",
+                // model: "Some Text",
 
                 init()
                 {
@@ -25,10 +25,10 @@
                 {
                     this.open = !this.open
                 },
-                SetModel()
-                {
-                    Livewire.emit('ShowDD')
-                }
+                // SetModel()
+                // {
+                //     Livewire.emit('ShowDD')
+                // }
             })
         })
     </script>

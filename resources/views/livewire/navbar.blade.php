@@ -49,7 +49,7 @@
                     </form>
                 </a>
             </li>
-            <button class="bg-gradient-to-r from-[#FFB03E] to-[#F67356] text-white duration-500 px-6 py-2 mx-2 hover:bg-cyan-500 rounded-[50px] w-[102px] h-[40px] " @click="$store.login.ToggleModal()">
+            <button class="bg-gradient-to-r from-[#FFB03E] to-[#F67356] text-white duration-500 px-6 py-2 mx-2 hover:bg-cyan-500 rounded-[50px] w-[102px] h-[40px] " @click="$store.register.ToggleModal()">
                 Masuk
             </button>
         </ul>
@@ -95,17 +95,17 @@
 
             init()
             {
-                this.$nextTick(() => 
-                { 
-                    this.counter = 1000 
-                })
+                // this.$nextTick(() => 
+                // { 
+                //     this.counter = 1000 
+                // })
             },
 
-            Increment()
-            {
-                this.counter++,
-                Livewire.emit('ShowDD')
-            }
+            // Increment()
+            // {
+            //     this.counter++,
+            //     Livewire.emit('ShowDD')
+            // }
         }))
     })
 </script>
