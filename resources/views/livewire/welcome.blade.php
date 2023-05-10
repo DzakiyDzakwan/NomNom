@@ -18,9 +18,9 @@
 
     <section class="container px-10 mt-6 mx-auto">
         <div class="flex flex-wrap -m-4">
-            @for ($i = 0; $i < 8; $i++) 
-                @livewire('inline.card') 
-            @endfor 
+            @for ($i = 0; $i < 8; $i++)
+                @livewire('inline.card')
+            @endfor
         </div>
     </section>
 
@@ -51,8 +51,11 @@
 
     <x-modal name="login" :counter="$counter">
         <div class="px-4 py-2.5 flex flex-col justify-end items-center">
-            <button class="font-medium whitespace-normal text-lg text-main dark:text-main rounded hover:bg-secondary hover:text-plain transition-colors duration-200 self-end" @click="ToggleModal">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+            <button
+                class="font-medium whitespace-normal text-lg text-main dark:text-main rounded hover:bg-secondary hover:text-plain transition-colors duration-200 self-end"
+                @click="ToggleModal">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-8 h-8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
@@ -60,7 +63,9 @@
         </div>
         <form class="px-2 py-5 md:px-4 text-center">
             {{-- <input type="text" class="rounded w-[80%] border-secondary focus:ring focus:ring-offset-2 focus:ring-secondary focus:border-secondary" x-model="model" x-on:keyup="$wire.ShowDD().then(result => console.log(result))"> --}}
-            <input type="text" class="rounded w-[80%] border-secondary focus:ring focus:ring-offset-2 focus:ring-secondary focus:border-secondary" x-on:keyup="SetModel()">
+            <input type="text"
+                class="rounded w-[80%] border-secondary focus:ring focus:ring-offset-2 focus:ring-secondary focus:border-secondary"
+                x-on:keyup="SetModel()">
         </form>
     </x-modal>
 </div>
