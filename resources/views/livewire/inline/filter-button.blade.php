@@ -1,11 +1,57 @@
-<div class="container px-20 py-8 mx-auto">
-    <x-dropdown>
-        <x-slot name="trigger">
-            <x-button label="Urutkan" sm right-icon="chevron-down" class="text-gray-800 rounded-full border-2 border-yellow-500 hover:bg-yellow-500 hover:text-white active:bg-yellow-600 font-medium text-xl px-2 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-50"/>
-        </x-slot>
-    
-        <x-dropdown.item label="Populer" />
-        <x-dropdown.item separator label="Terbaru" />
-        <x-dropdown.item separator label="Terlama" />
-    </x-dropdown>
+<x-dropdown>
+    <x-slot name="trigger">
+        <x-button type="filter" :with-gradient=false text="Lihat Lainnya"/>
+    </x-slot>
+
+    <x-dropdown.item label="Populer" />
+    <x-dropdown.item separator label="Terbaru" />
+    <x-dropdown.item separator label="Terlama" />
+</x-dropdown>
+
+{{-- <div x-data="dropdown">
+    @if($type == "kategori")
+        <x-dropdown>
+            <x-slot name="trigger">
+                <x-button type="filter" :with-gradient=false text="Kategori"/>
+            </x-slot>
+
+            <x-dropdown.item label="Sarapan" />
+            <x-dropdown.item separator label="Makan Siang" />
+            <x-dropdown.item separator label="Makan malam" />
+        </x-dropdown>
+    @elseif($type == "subkategori")
+        <x-dropdown>
+            <x-slot name="trigger">
+                <x-button type="filter" :with-gradient=false text="Subkategori"/>
+            </x-slot>
+
+            <x-dropdown.item label="Occasion" />
+            <x-dropdown.item separator label="Meals" />
+            <x-dropdown.item separator label="Cara Memasak" />
+        </x-dropdown>
+    @elseif($type == "urutkan")
+        <x-dropdown>
+            <x-slot name="trigger">
+                <x-button type="filter" :with-gradient=false text="Urutkan"/>
+            </x-slot>
+
+            <x-dropdown.item label="Populer" />
+            <x-dropdown.item separator label="Terbaru" />
+            <x-dropdown.item separator label="Terlama" />
+        </x-dropdown>
+    @endif
 </div>
+
+@pushOnce('component-script')
+<script>
+    document.addEventListener('alpine:init', () => 
+    {
+        Alpine.data('dropdown', () => (
+        {
+            init() 
+            {
+            },
+        }))
+    })
+</script>
+@endPushOnce --}}
