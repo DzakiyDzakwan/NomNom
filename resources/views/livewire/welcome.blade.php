@@ -58,6 +58,10 @@
 
     @livewire('inline.faq')
 
+    <div class="container mb-12 px-14 flex flex-wrap text-gray-800 body-font">
+        @for ($i = 0; $i < 3; $i++) @livewire('inline.step') @endfor
+    </div>
+
     @livewire('footer')
 
     <x-modal name="login">

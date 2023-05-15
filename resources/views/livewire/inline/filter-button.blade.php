@@ -1,6 +1,6 @@
 <x-dropdown>
     <x-slot name="trigger">
-        <x-button type="filter" :with-gradient=false text="Lihat Lainnya"/>
+        <x-button type="filter" :with-gradient=false text="Urutkan"/>
     </x-slot>
 
     <x-dropdown.item label="Populer" />
