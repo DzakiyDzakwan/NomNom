@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Livewire\FullPage\LandingPage;
 use Livewire\Component;
 
 class Navbar extends Component

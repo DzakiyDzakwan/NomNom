@@ -13,6 +13,9 @@ module.exports = {
     ],
     presets: [require("./vendor/wireui/wireui/tailwind.config.js")],
     theme: {
+        fontFamily: {
+            'serif': ['Noto Serif', 'Georgia'],
+        },
         fill: theme => ({
             'gray': theme('colors.gray.400'),
             'red': theme('colors.red.500'),

@@ -2,8 +2,8 @@
     <div class="bg-[url('../../public/assets/images/bg-hero.jpg')] bg-no-repeat bg-contain">
         @livewire('navbar', ['counter' => $counter])
         
-        <section class="text-gray-600 mt-[52px] mb-12">
-            <div class="container mx-auto flex px-10 pt-8 md:flex-row flex-col items-center relative">
+        <section class="text-gray-600 mt-[72px] mb-12">
+            <div class="container mx-auto flex px-10 md:flex-row flex-col items-center relative">
                 <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-[5rem] items-center text-center">
                     <h1 class="font-bold sm:text-5xl text-5xl mb-8 text-gray-900">Masak Apa Hari Ini?</h1>
                     <p class="mb-6 leading-relaxed text-base font-medium max-w-3xl">Temukan resep yang kamu inginkan berdasarkan kategori yang disediakan atau bahan yang kamu miliki serta buat resep versimu sendiri dan posting agar dapat dilihat oleh banyak orang! <br> Semua itu dapat kamu lakukan di NomNom.</p>
@@ -21,7 +21,7 @@
                     {{-- <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
                     <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button> --}}
                 </div>
-                <div class="w-[553px] h-[550px] w-1/2 w-5/6">
+                <div class="w-[553px] h-[550px] w-1/2 w-5/6 animate-pulse">
                     <img class="object-cover object-center drop-shadow-xl" alt="hero" src="{{ asset('assets/images/hero.png') }}">
                 </div>
             </div>
