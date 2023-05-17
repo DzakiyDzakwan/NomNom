@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Inline;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class BiodataSection extends Component
 {
     public function render()
     {
-        return view('livewire.biodata-section');
+        return view('livewire.inline.biodata-section');
     }
 }

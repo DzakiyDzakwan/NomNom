@@ -1,6 +1,7 @@
 <div>
     <div class="bg-[url('../../public/assets/images/bg-hero.jpg')] bg-no-repeat bg-contain">
-        @livewire('navbar', ['counter' => $counter])
+        {{-- @livewire('navbar', ['counter' => $counter]) --}}
+        <x-navbar></x-navbar>
         
         <section class="text-gray-600 mt-[52px] mb-12">
             <div class="container mx-auto flex px-10 pt-8 md:flex-row flex-col items-center relative">
@@ -62,7 +63,8 @@
         @for ($i = 0; $i < 3; $i++) @livewire('inline.step') @endfor
     </div>
 
-    @livewire('footer')
+    {{-- @livewire('footer') --}}
+    <x-footer></x-footer>
 
     <x-modal name="login">
         <div class="px-4 py-2.5 flex flex-col justify-end items-center">
