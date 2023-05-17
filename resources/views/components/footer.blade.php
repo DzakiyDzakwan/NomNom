@@ -4,7 +4,7 @@
             <div class="md:flex">
               <div class="mb-6 md:mb-0 md:w-[520px] ml-24">
                   <a href="#" class="flex items-center mb-4">
-                      <img src="{{ asset('assets/images/logo/400x100.png') }}" class="h-8 mr-0" alt="FlowBite Logo" />
+                      <img src="{{ asset('assets/images/logo/logo3.png') }}"class="h-8 mr-0" alt="FlowBite Logo" />
                   </a>
                   <ul class="text-white font-normal font-Poppins text-sm">
                     <li class="mb-4 ml-5">
