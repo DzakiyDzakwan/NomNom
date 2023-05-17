@@ -12,7 +12,7 @@ class LandingPage extends Component
 
     public function render()
     {
-        return view('livewire.welcome')->layout('layouts.welcome');
+        return view('livewire.welcome')->layout('layouts.main');
     }
 
     public function ShowDD()
