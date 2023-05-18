@@ -23,18 +23,18 @@
                     </li>
 
                     <li>
-                        <a href="#" class="block transition hover:text-gray-700"> Hasil Pencarian </a>
+                        <a href="#" class="block transition hover:text-gray-700"> Kategori </a>
                     </li>
                 </ol>
             </nav>
         </div>
 
-        <div class="bg-white-100 mt-10 shadow-xl rounded-2xl px-5 py-6 text-gray-800">
-            <h1 class="font-bold text-2xl">Hasil Pencarian.</h1>
-            <p class="font-medium text-base pt-1.5">Menampilkan <b>33</b> hasil pencarian dengan keyword <b>"jagunk"</b>.</p>
+        <div class="mt-2 text-gray-800">
+            <h1 class="font-bold text-4xl text-center">Resep berdasarkan kategori</h1>
         </div>
     
-        <div class="mb-8 mt-12">
+        <div class="mb-8 mt-8">
+            <p class="font-medium text-base text-gray-800 mb-4">Menampilkan <b>33</b> hasil pencarian dengan kategori <b>Breakfast</b>.</p>
             @livewire('inline.filter-button')
         </div>
         
