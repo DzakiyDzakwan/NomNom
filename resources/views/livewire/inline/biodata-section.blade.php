@@ -1,5 +1,5 @@
 <div>
-    <section class="bg-[#383838] text-white h-[323px] w-[100%]">
+    <section class="bg-[#383838] text-white h-[323px]">
         <div class="px-4 py-10">
           <div class="ml-32 relative">
             <div class="md:w-[179px] md:h-[179px]">
@@ -12,7 +12,7 @@
                       </svg>                                           
                 </button>
             </div>
-            <div class="w-[879px] h-60 ml-56 absolute top-8">
+            <div class="h-60 ml-56 absolute top-8">
                 <div class="text-white text-4xl font-thin mb-5">Demian Schnaffhold</div>
                 <div class="text-white text-lg font-light">Seorang Mahasiswa di MIT</div>
                 <ul class="flex mb-10">
