@@ -1,5 +1,5 @@
 <div>
-    <footer class="bg-[#262626] bottom-0 w-full">
+    <footer class="bg-[#262626] bottom-0 w-[100%]">
         <div class="mx-auto w-full max-w-screen-xl py-6 lg:py-8 px-28">
             <div class="md:flex">
               <div class="mb-6 md:mb-0 md:w-[520px] ml-24">
@@ -14,7 +14,7 @@
                 </ul>
               </div>
               <div class="grid grid-cols-2 sm:gap-6 sm:grid-cols-3 ml-36">
-                  <div class="">
+                  <div class="md:w-[320px]">
                       <h2 class="mb-6 text-sm font-Poppins font-semibold text-white">Tentang NomNom</h2>
                       <ul class="text-white font-normal font-Poppins text-sm">
                           <li class="mb-4">
