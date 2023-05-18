@@ -1,6 +1,6 @@
 <div x-data="button">
     @if($type == "rounded" && $withGradient)
-        <button {{ $attributes->merge(['class' => "bg-gradient-to-r from-[#FFB03E] to-[#F67356] text-white duration-500 px-6 py-2 hover:bg-cyan-500 rounded-full "]) }}>
+        <button {{ $attributes->merge(['class' => "bg-[#FFB03E] hover:bg-gradient-to-r from-[#FFB03E] to-[#F67356] text-white duration-500 px-16 py-2 rounded-full "]) }}>
             {{-- {{ $icon }} --}}
             {{ $text }}
         </button>
@@ -19,7 +19,7 @@
             </button>
         </div>
     @elseif($type = "regular" && $withGradient)
-        <button {{ $attributes->merge(['class' => "flex bg-gradient-to-r from-[#FFB03E] to-[#F67356] text-white duration-500 px-6 py-2 hover:bg-cyan-500 rounded"]) }} >
+        <button {{ $attributes->merge(['class' => "flex bg-[#FFB03E] hover:bg-gradient-to-r from-[#FFB03E] to-[#F67356] text-white duration-500 px-16 py-2 hover:bg-cyan-500 rounded"]) }} >
             {{-- {{ $icon }} --}}
             <span class="basis-full pr-4 text-main">{{ $text }}</span>
         </button>
