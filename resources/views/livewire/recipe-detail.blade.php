@@ -1,6 +1,7 @@
 <div>
-    @livewire('navbar', ['counter' => $counter])
-
+    {{-- @livewire('navbar', ['counter' => $counter]) --}}
+    <x-navbar></x-navbar>
+    
     <section class="text-gray-600 mt-[72px] px-8 pt-8 mb-4">
         <nav aria-label="Breadcrumb">
             <ol role="list" class="flex items-center gap-1 text-sm text-gray-600">

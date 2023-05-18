@@ -4,7 +4,7 @@
         <div class="flex relative">
             <div class="relative py-1 z-10 tracking-widest w-full opacity-100 rounded-2xl">
                 <div class="flex items-center py-36 pt-1 pr-2">
-                    <div class="lg:ml-auto md:ml-0 ml-auto px-2 py-1 bg-white opacity-100 rounded-full justify">
+                    <div class="lg:ml-auto md:ml-0 ml-auto px-2 my-auto pt-2 bg-white opacity-100 rounded-full justify">
                         <x-slot name="trigger">
                             <x-button-ui label="Options" />
                         </x-slot>

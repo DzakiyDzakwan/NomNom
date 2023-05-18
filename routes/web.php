@@ -7,4 +7,4 @@ Route::get('/', App\Http\Livewire\FullPage\LandingPage::class)->name('landing-pa
 Route::get('create', App\Http\Livewire\FullPage\CreateRecipe::class)->name('create-recipe');
 Route::get('profile', App\Http\Livewire\FullPage\ProfilePage::class)->name('profile-page');
 Route::get('recipe-detail', App\Http\Livewire\FullPage\RecipeDetail::class)->name('recipe-detail');
-
+Route::get('search-result', App\Http\Livewire\FullPage\SearchResult::class)->name('search-result');
