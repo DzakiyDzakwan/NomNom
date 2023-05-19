@@ -35,7 +35,37 @@
     
         <div class="mb-8 mt-8">
             <p class="font-medium text-base text-gray-800 mb-4">Menampilkan <b>33</b> hasil pencarian dengan kategori <b>Breakfast</b>.</p>
-            @livewire('inline.filter-button')
+            <div class="flex gap-3">
+                <x-dropdown>
+                    <x-slot name="trigger">
+                        <x-button type="filter" :with-gradient=false text="Kategori"/>
+                    </x-slot>
+
+                    <x-dropdown.item label="Sarapan" />
+                    <x-dropdown.item separator label="Makan siang" />
+                    <x-dropdown.item separator label="Makan malam" />
+                </x-dropdown>
+
+                <x-dropdown>
+                    <x-slot name="trigger">
+                        <x-button type="filter" :with-gradient=false text="Subkategori"/>
+                    </x-slot>
+
+                    <x-dropdown.item label="Occasion" />
+                    <x-dropdown.item separator label="Cuisine" />
+                    <x-dropdown.item separator label="Cara memasak" />
+                </x-dropdown>
+
+                <x-dropdown>
+                    <x-slot name="trigger">
+                        <x-button type="filter" :with-gradient=false text="Urutkan"/>
+                    </x-slot>
+
+                    <x-dropdown.item label="Populer" />
+                    <x-dropdown.item separator label="Terbaru" />
+                    <x-dropdown.item separator label="Terlama" />
+                </x-dropdown>
+            </div>
         </div>
         
         <div class="flex flex-wrap -m-4">
