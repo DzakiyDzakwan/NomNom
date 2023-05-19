@@ -1,9 +1,36 @@
 <div>
     <x-navbar></x-navbar>
-    <section class="container px-10 mx-auto text-gray-600 body-font mt-20 pt-8">
+    <section class="container px-10 mt-12 mx-auto">
+        <div class="mt-24">
+            <nav aria-label="Breadcrumb">
+                <ol role="list" class="flex items-center gap-1 text-sm text-gray-600">
+                    <li>
+                        <a href="#" class="block transition hover:text-gray-700"> Home </a>
+                    </li>
+                    <li class="rtl:rotate-180">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </li>
+
+                    <li>
+                        <a href="#" class="block transition hover:text-gray-700"> Buat Resep </a>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="bg-white-100 mt-10 shadow-xl rounded-2xl px-5 py-6 text-gray-800">
+            <h1 class="font-bold text-2xl">Buat Resep Kamu Sendiri.</h1>
+            <p class="font-medium text-base pt-1.5">Buatlah resep versimu sendiri dan posting agar dapat dilihat banyak
+                orang!</p>
+        </div>
+
         <form>
-            <div class="h-full overflow-hidden shadow-md bg-white mb-8 pb-4 pt-8 px-8">
-                <div class="text-lg mb-4">Keterangan Resep</div>
+            <div class="h-full overflow-hidden shadow-md bg-white mb-8 pb-4 pt-8 mt-12 px-8">
+                <div class="text-lg font-bold mb-4">Keterangan Resep</div>
                 <div class="px-8">
                     {{-- Email dan Thumbnail --}}
                     <div class="mb-4 flex flex-wrap">
@@ -25,7 +52,7 @@
 
                     {{-- Kategori --}}
                     <div class="w-full mb-6 px-4">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
+                        <label class="block mb-2  font-medium text-gray-900 dark:text-white">Kategori</label>
                         <div class="pb-2">
                             <select data-te-select-init
                                 class="pb-8bg-gray border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -40,7 +67,19 @@
                                 <option value="2">Jam</option>
                             </select>
                         </div>
-
+                        <div class="text-right mb-6">
+                            <button
+                                class="inline-flex items-center gap-1 rounded-full border-2 border-[#FFB03E] bg-transparent px-2 py-1 text-base font-medium text-gray-800 transition-colors hover:bg-[#FFB03E] hover:text-white focus:outline-none focus:ring active:opacity-75"
+                                href="#" rel="noreferrer">
+                                Tambah
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                     {{-- Porsi --}}
                     <div class="w-full mb-6 px-4">
@@ -86,7 +125,7 @@
             </div>
 
             <div class="h-full overflow-hidden shadow-md bg-white mb-8 pb-4 pt-8 px-8">
-                <div class="text-lg mb-4">Bahan-Bahan</div>
+                <div class="text-lg font-bold mb-4">Bahan-Bahan</div>
                 <div class="px-8">
                     <div class="w-full mb-6 px-4">
                         <form class="flex items-center">
@@ -110,7 +149,7 @@
             </div>
 
             <div class="h-full overflow-hidden shadow-md bg-white mb-8 pb-4 pt-8 px-8">
-                <div class="text-lg mb-4">Peralatan Memasak</div>
+                <div class="text-lg font-bold mb-4">Peralatan Memasak</div>
                 <div class="px-8">
                     <div class="w-full mb-6 px-4">
                         <form class="flex items-center">
@@ -134,7 +173,7 @@
             </div>
 
             <div class="h-full overflow-hidden shadow-md bg-white  pb-4 pt-8 px-8">
-                <div class="text-lg mb-4">Langkah Memasak</div>
+                <div class="text-lg font-bold mb-4">Langkah Memasak</div>
                 {{-- tahapan --}}
                 <div class="px-8">
                     <div class="mb-0 flex flex-wrap items-start">
@@ -204,12 +243,27 @@
                             </select>
                         </div>
                     </div>
+                    <div class="text-right mb-6 px-4">
+                        <button
+                            class="inline-flex items-center gap-1 rounded-full border-2 border-[#FFB03E] bg-transparent px-2 py-1 text-base font-medium text-gray-800 transition-colors hover:bg-[#FFB03E] hover:text-white focus:outline-none focus:ring active:opacity-75"
+                            href="#" rel="noreferrer">
+                            Tambah
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-
-
+            </div>
+            <div class="py-8 text-right">
+                <x-button type="rounded" :with-gradient=true text="Simpan"></x-button>
             </div>
         </form>
     </section>
+    <x-footer></x-footer>
     <script>
         function showImage() {
             return {
