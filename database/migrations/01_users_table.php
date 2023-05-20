@@ -19,9 +19,10 @@ return new class extends Migration
             $table->string('nama');
             $table->string('image')->nullable();
             $table->date('tgl_lahir')->nullable();
+            $table->enum('jenis_kelamin', ['LK', 'PR'])->nullable();
             $table->text('bio')->nullable();
             $table->string('pekerjaan')->nullable();
-            $table->enum('role', ['admin', 'user']);
+            $table->enum('role', [1, 2, 3]);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
