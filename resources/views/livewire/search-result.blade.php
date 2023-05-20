@@ -1,6 +1,6 @@
 <div>
     <x-navbar></x-navbar>
-    <section class="container px-10 mt-12 mx-auto">
+    <section class="container px-24 mt-12 mx-auto">
         <div class="mt-24">
             <nav aria-label="Breadcrumb">
                 <ol role="list" class="flex items-center gap-1 text-sm text-gray-600">
