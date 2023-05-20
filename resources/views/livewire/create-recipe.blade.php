@@ -1,5 +1,5 @@
 <div>
-    <x-navbar></x-navbar>
+    <x-navbar :counter="$counter" wire:model="counter"></x-navbar>
     <section class="container px-10 mt-12 mx-auto">
         <div class="mt-24">
             <nav aria-label="Breadcrumb">

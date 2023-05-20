@@ -95,7 +95,7 @@
             <img src="{{ asset('assets/images/logo/logo_nomnom5baru_3.png') }}" alt="NomNom Logo" class="w-40 md:w-36">
         </div>
         <form class="px-2 pt-5 pb-10 md:px-4 w-[75%] mx-auto space-y-4">
-            <x-forms for="regular" id="username" text="Username" type="text" placeholder="Username" :counter="$counter"></x-forms>
+            <x-forms wire:model="counter" for="regular" id="username" text="Username" type="text" placeholder="Username" ></x-forms>
             <x-forms for="regular" id="email" text="Email" type="email" placeholder="Email"></x-forms>
             <x-forms for="regular" id="password" text="Password" type="password" placeholder="Password"></x-forms>
             <x-button type="regular" :withGradient=false text="Register" class="w-full"></x-button>
