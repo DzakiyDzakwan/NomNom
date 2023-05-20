@@ -2,7 +2,7 @@
     <div class="bg-[url('../../public/assets/images/bg-hero.jpg')] bg-no-repeat bg-contain">
         <x-navbar :counter="$counter"></x-navbar>
 
-        <section class="text-gray-600 mt-[84px] mb-12">
+        <section class="text-gray-600 mt-[72px] mb-12">
             <div class="container mx-auto flex px-24 md:flex-row flex-col items-center relative">
                 <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-[5rem] items-center text-center mt-12">
                     <h1 class="font-bold sm:text-5xl text-5xl mb-8 text-gray-900">Masak Apa Hari Ini?</h1>
@@ -21,7 +21,7 @@
                     {{-- <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
                     <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button> --}}
                 </div>
-                <div class="w-[553px] h-[550px] hover:scale-105 transition ease-in-out duration-1000">
+                <div class="w-[553px] h-[550px] hover:scale-105 transition ease-in-out duration-1000 mt-[12px]">
                     <img class="object-cover object-center drop-shadow-xl" alt="hero" src="{{ asset('assets/images/hero.png') }}">
                 </div>
             </div>
