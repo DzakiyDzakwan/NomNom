@@ -1,4 +1,4 @@
-<section class="container px-6 mx-auto mt-12 mb-12">
+<section class="container px-20 mx-auto mt-12 mb-12">
     <div class="flex flex-col text-center w-full">
       <h1 class="sm:text-3xl text-2xl font-bold title-font text-gray-900">FAQ</h1>
     </div>
@@ -6,7 +6,7 @@
         <div class="lg:w-1/2 md:w-1/2 px-2 py-2">
             <details class="group [&_summary::-webkit-details-marker]:hidden">
                 <summary
-                class="flex cursor-pointer items-center justify-between gap-1.5 rounded-t-xl text-gray-800 bg-white shadow-lg focus:bg-gradient-to-r from-[#ffb03e] to-[#f67356] focus:text-white p-4"
+                class="flex cursor-pointer items-center justify-between gap-1.5 rounded-t-xl text-gray-800 bg-white shadow-lg focus:bg-gradient-to-r from-[#ffb03e] to-[#f67356] focus:text-white active:bg-gradient-to-r from-[#ffb03e] to-[#f67356] active:text-white p-4"
                 >
                 <h2 class="font-bold text-base">
                     Lorem ipsum dolor sit amet consectetur adipisicing?
@@ -39,7 +39,7 @@
         <div class="lg:w-1/2 md:w-1/2 px-2 py-2">
             <details class="group [&_summary::-webkit-details-marker]:hidden">
                 <summary
-                class="flex cursor-pointer items-center justify-between gap-1.5 rounded-t-xl text-gray-800 bg-white shadow-lg focus:bg-gradient-to-r from-[#ffb03e] to-[#f67356] focus:text-white p-4"
+                class="flex cursor-pointer items-center justify-between gap-1.5 rounded-t-xl text-gray-800 bg-white shadow-lg focus:bg-gradient-to-r from-[#ffb03e] to-[#f67356] focus:text-white active:bg-gradient-to-r from-[#ffb03e] to-[#f67356] active:text-white p-4"
                 >
                 <h2 class="font-bold text-base">
                     Lorem ipsum dolor sit amet consectetur adipisicing?
@@ -72,7 +72,7 @@
         <div class="lg:w-1/2 md:w-1/2 px-2 py-2">
             <details class="group [&_summary::-webkit-details-marker]:hidden">
                 <summary
-                class="flex cursor-pointer items-center justify-between gap-1.5 rounded-t-xl text-gray-800 bg-white shadow-lg focus:bg-gradient-to-r from-[#ffb03e] to-[#f67356] focus:text-white p-4"
+                class="flex cursor-pointer items-center justify-between gap-1.5 rounded-t-xl text-gray-800 bg-white shadow-lg focus:bg-gradient-to-r from-[#ffb03e] to-[#f67356] focus:text-white active:bg-gradient-to-r from-[#ffb03e] to-[#f67356] active:text-white p-4"
                 >
                 <h2 class="font-bold text-base">
                     Lorem ipsum dolor sit amet consectetur adipisicing?
@@ -105,7 +105,7 @@
         <div class="lg:w-1/2 md:w-1/2 px-2 py-2">
             <details class="group [&_summary::-webkit-details-marker]:hidden">
                 <summary
-                class="flex cursor-pointer items-center justify-between gap-1.5 rounded-t-xl text-gray-800 bg-white shadow-lg focus:bg-gradient-to-r from-[#ffb03e] to-[#f67356] focus:text-white p-4"
+                class="flex cursor-pointer items-center justify-between gap-1.5 rounded-t-xl text-gray-800 bg-white shadow-lg focus:bg-gradient-to-r from-[#ffb03e] to-[#f67356] focus:text-white active:bg-gradient-to-r from-[#ffb03e] to-[#f67356] active:text-white p-4"
                 >
                 <h2 class="font-bold text-base">
                     Lorem ipsum dolor sit amet consectetur adipisicing?

@@ -2,9 +2,9 @@
     <div class="bg-[url('../../public/assets/images/bg-hero.jpg')] bg-no-repeat bg-contain">
         <x-navbar :counter="$counter"></x-navbar>
 
-        <section class="text-gray-600 mt-[72px] mb-12">
-            <div class="container mx-auto flex px-10 md:flex-row flex-col items-center relative">
-                <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-[5rem] items-center text-center">
+        <section class="text-gray-600 mt-[84px] mb-12">
+            <div class="container mx-auto flex px-24 md:flex-row flex-col items-center relative">
+                <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-[5rem] items-center text-center mt-12">
                     <h1 class="font-bold sm:text-5xl text-5xl mb-8 text-gray-900">Masak Apa Hari Ini?</h1>
                     <p class="mb-6 leading-relaxed text-base font-medium max-w-3xl">Temukan resep yang kamu inginkan berdasarkan kategori yang disediakan atau bahan yang kamu miliki serta buat resep versimu sendiri dan posting agar dapat dilihat oleh banyak orang! <br> Semua itu dapat kamu lakukan di NomNom.</p>
                     <form class="flex items-center">
@@ -27,7 +27,7 @@
             </div>
         </section>
 
-        <section class="container px-10 mx-auto text-gray-600 body-font mt-12">
+        <section class="container px-24 mx-auto text-gray-600 body-font mt-12">
             @livewire('inline.category-card')
         </section>
     </div>
@@ -40,16 +40,20 @@
         <h1 class="sm:text-3xl text-2xl font-bold title-font text-gray-900">Rekomendasi Resep</h1>
     </div>
 
-    <section class="container px-10 mt-6 mx-auto">
-        <div class="mb-8">
+    <section class="container px-24 mt-6 mx-auto">
+        {{-- <div class="mb-8">
             @livewire('inline.filter-button')
-        </div>
+        </div> --}}
 
         <div class="flex flex-wrap -m-4">
             @for ($i = 0; $i < 8; $i++) @livewire('inline.card') @endfor </div>
     </section>
 
-    @livewire('pagination')
+    <div class="text-center mt-9">
+        <x-button type="rounded" :with-gradient=true text="Lihat Lainnya"></x-button>
+    </div>
+
+    {{-- @livewire('pagination') --}}
 
     @livewire('inline.faq')
 
