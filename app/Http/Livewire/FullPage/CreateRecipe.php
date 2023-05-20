@@ -10,6 +10,6 @@ class CreateRecipe extends Component
     
     public function render()
     {
-        return view('livewire.create-recipe')->layout('layouts.main');
+        return view('livewire.create-recipe')->layout('layouts.main', ['title' => 'Tambah Resep']);
     }
 }

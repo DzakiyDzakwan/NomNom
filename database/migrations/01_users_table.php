@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('nama');
+            $table->string('nama')->nullable();
             $table->string('image')->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->enum('jenis_kelamin', ['LK', 'PR'])->nullable();
