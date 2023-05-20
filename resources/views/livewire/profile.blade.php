@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <section class="container px-10 mx-auto mb-14">
+    <section class="container px-32 mx-auto mb-16 ">
         <div class="flex flex-wrap -m-4">
             @for ($i = 0; $i < 8; $i++) @livewire('inline.card') @endfor
         </div>
