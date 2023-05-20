@@ -11,7 +11,7 @@
                     <form class="flex items-center">
                         <label for="simple-search" class="sr-only">Search</label>
                         <div class="relative">
-                            <input type="text" id="simple-search" class="w-full bg-transparent backdrop-blur-sm text-[#616161] border border-[#838383] shadow-sm text-gray-800 text-base font-medium focus:ring-blue-500 focus:border-blue-500 block w-[300px] h-[40px] md:w-[360px] pl-10 p-2.5 rounded-lg" placeholder="Cari Resep..." required>
+                            <input type="text" id="simple-search" class="bg-transparent backdrop-blur-sm text-main border border-main shadow-sm text-base font-medium focus:ring-blue-500 focus:border-blue-500 block w-[300px] h-[40px] md:w-[360px] pl-10 p-2.5 rounded-lg" placeholder="Cari Resep..." required>
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg aria-hidden="true" class="w-5 h-5 text-[#3E3E3E] dark:text-gray-400" fill="#3E3E3E" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
@@ -22,7 +22,7 @@
                     {{-- <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
                     <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button> --}}
                 </div>
-                <div class="w-[553px] h-[550px] w-1/2 w-5/6 animate-pulse">
+                <div class="w-[553px] h-[550px] hover:scale-105 transition ease-in-out duration-1000">
                     <img class="object-cover object-center drop-shadow-xl" alt="hero" src="{{ asset('assets/images/hero.png') }}">
                 </div>
             </div>
@@ -59,10 +59,6 @@
 
     @livewire('inline.faq')
 
-    <div class="container mb-12 px-14 flex flex-wrap text-gray-800 body-font">
-        @for ($i = 0; $i < 3; $i++) @livewire('inline.step') @endfor
-    </div>
-
     {{-- @livewire('footer') --}}
     <x-footer></x-footer>
 
@@ -76,8 +72,8 @@
             <img src="{{ asset('assets/images/logo/logo_nomnom5baru_3.png') }}" alt="NomNom Logo" class="w-40 md:w-36">
         </div>
         <form class="px-2 pt-5 pb-10 md:px-4 w-[75%] mx-auto space-y-4">
-            <x-forms for="input" id="username" text="Username" type="text" placeholder="Username, Email"></x-forms>
-            <x-forms for="input" id="password" text="Password" type="password" placeholder="Password"></x-forms>
+            <x-forms for="regular" id="username" text="Username" type="text" placeholder="Username, Email"></x-forms>
+            <x-forms for="regular" id="password" text="Password" type="password" placeholder="Password"></x-forms>
             <x-button type="regular" :withGradient=false text="Login" class="w-full"></x-button>
             <div class="relative flex items-center">
                 <div class="flex-grow border-t border-gray-400"></div>
@@ -106,9 +102,9 @@
             <img src="{{ asset('assets/images/logo/logo_nomnom5baru_3.png') }}" alt="NomNom Logo" class="w-40 md:w-36">
         </div>
         <form class="px-2 pt-5 pb-10 md:px-4 w-[75%] mx-auto space-y-4">
-            <x-forms for="input" id="username" text="Username" type="text" placeholder="Username"></x-forms>
-            <x-forms for="input" id="email" text="Email" type="email" placeholder="Email"></x-forms>
-            <x-forms for="input" id="password" text="Password" type="password" placeholder="Password"></x-forms>
+            <x-forms for="regular" id="username" text="Username" type="text" placeholder="Username"></x-forms>
+            <x-forms for="regular" id="email" text="Email" type="email" placeholder="Email"></x-forms>
+            <x-forms for="regular" id="password" text="Password" type="password" placeholder="Password"></x-forms>
             <x-button type="regular" :withGradient=false text="Register" class="w-full"></x-button>
             <div class="relative flex items-center">
                 <div class="flex-grow border-t border-gray-400"></div>

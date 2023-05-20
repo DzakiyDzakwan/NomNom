@@ -1,6 +1,6 @@
 <div>
 
-    <div x-data="forms">
+    <div >
         @if ($for == 'regular')
             <label for="{{ $id }}"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ $text }}</label>
