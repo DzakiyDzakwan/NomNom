@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class LandingPage extends Component
 {
-    public $counter = 10;
+    public $counter = 100;
 
     protected $listeners = ['ShowDD'];
 

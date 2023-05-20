@@ -1,8 +1,7 @@
 <div>
     <div class="bg-[url('../../public/assets/images/bg-hero.jpg')] bg-no-repeat bg-contain">
-        {{-- @livewire('navbar', ['counter' => $counter]) --}}
-        <x-navbar></x-navbar>
-        
+        <x-navbar :counter="$counter"></x-navbar>
+
         <section class="text-gray-600 mt-[72px] mb-12">
             <div class="container mx-auto flex px-10 md:flex-row flex-col items-center relative">
                 <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-[5rem] items-center text-center">
@@ -27,7 +26,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="container px-10 mx-auto text-gray-600 body-font mt-12">
             @livewire('inline.category-card')
         </section>
@@ -45,81 +44,32 @@
         <div class="mb-8">
             @livewire('inline.filter-button')
         </div>
-        
+
         <div class="flex flex-wrap -m-4">
-            @for ($i = 0; $i < 8; $i++) @livewire('inline.card') @endfor
-        </div>
+            @for ($i = 0; $i < 8; $i++) @livewire('inline.card') @endfor </div>
     </section>
 
     @livewire('pagination')
 
-    <div class="text-center mt-9 mx-[35rem]">
-        <x-button type="regular" :with-gradient=false text="Lihat Lainnya"></x-button>
-    </div>
-
     @livewire('inline.faq')
 
-    {{-- @livewire('footer') --}}
+    <button class="group fixed bottom-8 right-8 z-50 inline-flex items-center overflow-hidden rounded-full bg-primary p-6 text-white focus:outline-none focus:ring active:bg-secondary">
+        <span class="absolute -end-[150%] transition-all ease-in-out duration-500 group-hover:end-4">
+            Buat Resep
+        </span>
+
+        <span class="text-sm font-medium group-hover:me-24 transition-all ease-in-out duration-500">
+            <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <g id="Edit / Add_To_Queue">
+                        <path id="Vector" d="M3 9V19.4C3 19.9601 3 20.2399 3.10899 20.4538C3.20487 20.642 3.35774 20.7952 3.5459 20.8911C3.7596 21 4.0395 21 4.59846 21H15.0001M14 13V10M14 10V7M14 10H11M14 10H17M7 13.8002V6.2002C7 5.08009 7 4.51962 7.21799 4.0918C7.40973 3.71547 7.71547 3.40973 8.0918 3.21799C8.51962 3 9.08009 3 10.2002 3H17.8002C18.9203 3 19.4801 3 19.9079 3.21799C20.2842 3.40973 20.5905 3.71547 20.7822 4.0918C21.0002 4.51962 21.0002 5.07969 21.0002 6.19978L21.0002 13.7998C21.0002 14.9199 21.0002 15.48 20.7822 15.9078C20.5905 16.2841 20.2842 16.5905 19.9079 16.7822C19.4805 17 18.9215 17 17.8036 17H10.1969C9.07899 17 8.5192 17 8.0918 16.7822C7.71547 16.5905 7.40973 16.2842 7.21799 15.9079C7 15.4801 7 14.9203 7 13.8002Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </g>
+            </svg>
+        </span>
+    </button>
+
     <x-footer></x-footer>
-
-    <x-modal name="login">
-        <div class="px-4 py-2.5 flex flex-col justify-end items-center">
-            <button class="font-medium whitespace-normal text-lg text-main dark:text-main rounded hover:bg-secondary hover:text-plain transition-colors duration-200 self-end" @click="ToggleModal">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <img src="{{ asset('assets/images/logo/logo_nomnom5baru_3.png') }}" alt="NomNom Logo" class="w-40 md:w-36">
-        </div>
-        <form class="px-2 pt-5 pb-10 md:px-4 w-[75%] mx-auto space-y-4">
-            <x-forms for="regular" id="username" text="Username" type="text" placeholder="Username, Email"></x-forms>
-            <x-forms for="regular" id="password" text="Password" type="password" placeholder="Password"></x-forms>
-            <x-button type="regular" :withGradient=false text="Login" class="w-full"></x-button>
-            <div class="relative flex items-center">
-                <div class="flex-grow border-t border-gray-400"></div>
-                <span class="flex-shrink mx-4 text-gray-400">OR</span>
-                <div class="flex-grow border-t border-gray-400"></div>
-            </div>
-            <x-button type="regular" :withGradient=true text="Continue with Google" class="w-full !bg-transparent">
-                <x-slot:icon>
-                    <svg class="w-6 h-6 basis-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19.76 10.77L19.67 10.42H12.23V13.58H16.68C16.4317 14.5443 15.8672 15.3974 15.0767 16.0029C14.2863 16.6084 13.3156 16.9313 12.32 16.92C11.0208 16.9093 9.77254 16.4135 8.81999 15.53C8.35174 15.0685 7.97912 14.5191 7.72344 13.9134C7.46777 13.3077 7.33407 12.6575 7.33 12C7.34511 10.6795 7.86792 9.41544 8.79 8.47002C9.7291 7.58038 10.9764 7.08932 12.27 7.10002C13.3779 7.10855 14.4446 7.52101 15.27 8.26002L17.47 6.00002C16.02 4.70638 14.1432 3.9941 12.2 4.00002C11.131 3.99367 10.0713 4.19793 9.08127 4.60115C8.09125 5.00436 7.19034 5.59863 6.43 6.35002C4.98369 7.8523 4.16827 9.85182 4.15152 11.9371C4.13478 14.0224 4.918 16.0347 6.34 17.56C7.12784 18.3449 8.06422 18.965 9.09441 19.3839C10.1246 19.8029 11.2279 20.0123 12.34 20C13.3484 20.0075 14.3479 19.8102 15.2779 19.42C16.2078 19.0298 17.0488 18.4549 17.75 17.73C19.1259 16.2171 19.8702 14.2347 19.83 12.19C19.8408 11.7156 19.8174 11.2411 19.76 10.77Z" fill="#000000"></path> </g></svg>
-                </x-slot:icon>
-            </x-button>
-            <p class="!mt-2 text-center">
-                Don't have an account? 
-                <a href="#javascript(void)" class="text-primary font-bold text-base transition hover:underline" @click="ToggleModal();$store.register.ToggleModal()">Register</a>
-            </p>
-        </form>
-    </x-modal>
-
-    <x-modal name="register" :counter="$counter">
-        <div class="px-4 py-2.5 flex flex-col justify-end items-center">
-            <button class="font-medium whitespace-normal text-lg text-main dark:text-main rounded hover:bg-secondary hover:text-plain transition-colors duration-200 self-end" @click="ToggleModal">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <img src="{{ asset('assets/images/logo/logo_nomnom5baru_3.png') }}" alt="NomNom Logo" class="w-40 md:w-36">
-        </div>
-        <form class="px-2 pt-5 pb-10 md:px-4 w-[75%] mx-auto space-y-4">
-            <x-forms for="regular" id="username" text="Username" type="text" placeholder="Username"></x-forms>
-            <x-forms for="regular" id="email" text="Email" type="email" placeholder="Email"></x-forms>
-            <x-forms for="regular" id="password" text="Password" type="password" placeholder="Password"></x-forms>
-            <x-button type="regular" :withGradient=false text="Register" class="w-full"></x-button>
-            <div class="relative flex items-center">
-                <div class="flex-grow border-t border-gray-400"></div>
-                <span class="flex-shrink mx-4 text-gray-400">OR</span>
-                <div class="flex-grow border-t border-gray-400"></div>
-            </div>
-            <x-button type="regular" :withGradient=true text="Continue with Google" class="w-full !bg-transparent">
-                <x-slot:icon>
-                    <svg class="w-6 h-6 basis-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19.76 10.77L19.67 10.42H12.23V13.58H16.68C16.4317 14.5443 15.8672 15.3974 15.0767 16.0029C14.2863 16.6084 13.3156 16.9313 12.32 16.92C11.0208 16.9093 9.77254 16.4135 8.81999 15.53C8.35174 15.0685 7.97912 14.5191 7.72344 13.9134C7.46777 13.3077 7.33407 12.6575 7.33 12C7.34511 10.6795 7.86792 9.41544 8.79 8.47002C9.7291 7.58038 10.9764 7.08932 12.27 7.10002C13.3779 7.10855 14.4446 7.52101 15.27 8.26002L17.47 6.00002C16.02 4.70638 14.1432 3.9941 12.2 4.00002C11.131 3.99367 10.0713 4.19793 9.08127 4.60115C8.09125 5.00436 7.19034 5.59863 6.43 6.35002C4.98369 7.8523 4.16827 9.85182 4.15152 11.9371C4.13478 14.0224 4.918 16.0347 6.34 17.56C7.12784 18.3449 8.06422 18.965 9.09441 19.3839C10.1246 19.8029 11.2279 20.0123 12.34 20C13.3484 20.0075 14.3479 19.8102 15.2779 19.42C16.2078 19.0298 17.0488 18.4549 17.75 17.73C19.1259 16.2171 19.8702 14.2347 19.83 12.19C19.8408 11.7156 19.8174 11.2411 19.76 10.77Z" fill="#000000"></path> </g></svg>
-                </x-slot:icon>
-            </x-button>
-            <p class="!mt-2 text-center">
-                Already have an account? 
-                <a href="#javascript(void)" class="text-primary font-bold text-base transition hover:underline" @click="ToggleModal();$store.login.ToggleModal()">Login</a>
-            </p>
-        </form>
-    </x-modal>
 </div>
