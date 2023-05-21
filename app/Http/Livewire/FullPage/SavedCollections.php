@@ -12,7 +12,7 @@ class SavedCollections extends Component
 
     public function render()
     {
-        return view('livewire.saved-collections')->layout('layouts.main');
+        return view('livewire.saved-collections')->layout('layouts.main', ['title' => 'Profil']);
     }
     
     public function ShowDD()

@@ -36,7 +36,7 @@ class BiodataSection extends Component
                     'nama' => 'required',
                     'email' => 'required|email|unique:users',
                     'profesi' => 'required',
-                    'tgl' => 'required',
+                    'tgl' => 'required|before:today',
                     'foto' => 'nullable|file'
                 ],
                 [
@@ -48,7 +48,8 @@ class BiodataSection extends Component
     
                     'profesi.required' => ':attribute tidak boleh kosong',
     
-                    'tgl.required' => ':attribute tidak boleh kosong'
+                    'tgl.required' => ':attribute tidak boleh kosong',
+                    'tgl.before' => ':attribute salah'
                 ],
                 [
                     'nama' => 'Nama Lengkap',
@@ -63,7 +64,7 @@ class BiodataSection extends Component
                     'nama' => 'required',
                     'email' => 'required|email',
                     'profesi' => 'required',
-                    'tgl' => 'required',
+                    'tgl' => 'required|before:today',
                     'foto' => 'nullable|file'
                 ],
                 [
@@ -74,7 +75,8 @@ class BiodataSection extends Component
     
                     'profesi.required' => ':attribute tidak boleh kosong',
     
-                    'tgl.required' => ':attribute tidak boleh kosong'
+                    'tgl.required' => ':attribute tidak boleh kosong',
+                    'tgl.before' => ':attribute salah'
                 ],
                 [
                     'nama' => 'Nama Lengkap',
