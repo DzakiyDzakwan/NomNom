@@ -9,7 +9,12 @@ class ResepBahan extends Model
 {
     use HasFactory;
 
-    protected $guarded = [
-        'id',
+    protected $fillable = [
+        'resep_id',
+        'bahan_id',
+        'jumlah',
+        'satuan'
     ];
+
+    public $timestamps = false;
 }

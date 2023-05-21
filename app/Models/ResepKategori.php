@@ -9,7 +9,10 @@ class ResepKategori extends Model
 {
     use HasFactory;
 
-    protected $guarded = [
-        'id',
+    protected $fillable = [
+        'resep_id',
+        'kategori_id'
     ];
+
+    public $timestamps = false;
 }

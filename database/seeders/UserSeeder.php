@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
+            'uuid' => '99369fd9-568a-4d42-933d-876ceb39401b',
             'email' => 'user1@gmail.com',
             'username' => 'usersatu',
             'password' => Hash::make('usersatu'),
@@ -31,6 +32,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
+            'uuid' => '99369fd9-6c17-4d70-a4de-6c6c05612473',
             'email' => 'user2@gmail.com',
             'username' => 'userdua',
             'password' => Hash::make('userdua'),
@@ -39,6 +41,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
+            'uuid' => '99369fd9-8192-4d7d-9ed6-4feca0677e9d',
             'email' => 'user3@gmail.com',
             'username' => 'usertiga',
             'password' => Hash::make('usertiga'),
