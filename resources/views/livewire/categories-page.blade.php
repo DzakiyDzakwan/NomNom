@@ -69,7 +69,9 @@
         </div>
         
         <div class="flex flex-wrap -m-4">
-            @for ($i = 0; $i < 8; $i++) @livewire('inline.card') @endfor
+            @foreach ($resep as $item)
+                @livewire('inline.card', ['data' => $item], key($item->id))
+            @endforeach
         </div>
 
         <div class="mb-10">
