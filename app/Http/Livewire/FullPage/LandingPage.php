@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\FullPage;
 
+use App\Models\Resep;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -15,13 +16,9 @@ class LandingPage extends Component
 
     public function render()
     {
-        return view('livewire.welcome')->layout('layouts.main', ['title' => 'Dashboard']);
+        $resep = Resep::offset(0)->limit(8)->get();
+        return view('livewire.welcome', compact('resep'))->layout('layouts.main', ['title' => 'Dashboard']);
     }
-
-    /* public function ShowDD()
-    {
-        dd($this->counter);
-    } */
 
     public function register() {
         $this->validate(
