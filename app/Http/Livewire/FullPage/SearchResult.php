@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\FullPage;
 
 use Livewire\Component;
+use App\Models\Resep;
 
 class SearchResult extends Component
 {
@@ -12,7 +13,8 @@ class SearchResult extends Component
 
     public function render()
     {
-        return view('livewire.search-result')->layout('layouts.main');
+        $resep = Resep::offset(0)->limit(8)->get();
+        return view('livewire.search-result', compact('resep'))->layout('layouts.main', ['title' => 'Hasil Pencarian']);
     }
 
     public function ShowDD()

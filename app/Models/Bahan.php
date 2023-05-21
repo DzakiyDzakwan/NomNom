@@ -16,3 +16,4 @@ class Bahan extends Model
 
     public $incrementing = false;
 }
+
