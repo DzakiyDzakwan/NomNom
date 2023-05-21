@@ -18,39 +18,47 @@
             </div>
 
             {{-- Image --}}
-            <img class="lg:h-48 md:h-48 w-full absolute object-center object-cover inset-0 h-full" src="{{ asset('assets/images/card-image.jpg') }}" alt="blog">
+            <img class="lg:h-48 md:h-48 w-full absolute object-center object-cover inset-0 h-full"
+                src="storage/images/resep/{{ $data->image }}" alt="image">
         </div>
 
 
         {{-- Title, icon --}}
         <div class="px-3">
             <div class="flex items-center flex-wrap mt-2">
-                <h1 class="title-font text-lg font-bold text-gray-800">Ayam Geprek</h1>
-                <button class="mt-1 border-2 border-opacity-100 rounded-full px-1 py-1 shadow-md lg:ml-auto md:ml-0 ml-auto">
-                    <svg class="h-7 w-7 fill-gray hover:fill-yellow focus:fill-yellow active:fill-yellow" viewBox="0 0 20 20">
+                <h1 class="title-font text-lg font-bold text-gray-800">{{ $data->nama_resep }}</h1>
+                <button
+                    class="mt-1 border-2 border-opacity-100 rounded-full px-1 py-1 shadow-md lg:ml-auto md:ml-0 ml-auto">
+                    <svg class="h-7 w-7 fill-gray hover:fill-yellow focus:fill-yellow active:fill-yellow"
+                        viewBox="0 0 20 20">
                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                     </svg>
                 </button>
             </div>
             <span class="text-gray-400 inline-flex items-center leading-none text-sm pr-3">
                 <svg class="w-6 h-6 mr-1 fill-gray" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 20 18">
-                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+                    <path fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                        clip-rule="evenodd" />
                 </svg>
-                <div class="text-gray-800 text-sm font-normal">Talitha Syafiyah</div>
+                <div class="text-gray-800 text-sm font-normal">{{ $data->chef->username }}</div>
             </span>
             <div class="flex items-center flex-wrap mb-2">
                 </a>
                 <span class="inline-flex items-center leading-none text-sm pr-3 py-1">
                     <svg class="w-5 h-5 mr-1" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 22 23">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                     </svg>
                     <div class="text-gray-800 text-sm font-medium">4.9</div>
                 </span>
                 <span class="inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm">
                     <svg class="w-5 h-5 mr-1" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 22 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                            clip-rule="evenodd" />
                     </svg>
-                    <div class="text-gray-800 text-sm font-medium">35 Menit</div>
+                    <div class="text-gray-800 text-sm font-medium">{{ $data->durasi }}</div>
                 </span>
             </div>
         </div>

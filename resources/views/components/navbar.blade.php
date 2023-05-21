@@ -188,7 +188,7 @@
                 placeholder="Password">
             </x-forms>
             <x-button type="regular" :withGradient=false text="Login" class="w-full"></x-button>
-            <div class="relative flex items-center">
+            {{-- <div class="relative flex items-center">
                 <div class="flex-grow border-t border-gray-400"></div>
                 <span class="flex-shrink mx-4 text-gray-400">OR</span>
                 <div class="flex-grow border-t border-gray-400"></div>
@@ -206,7 +206,7 @@
                         </g>
                     </svg>
                 </x-slot:icon>
-            </x-button>
+            </x-button> --}}
             <p class="!mt-2 text-center">
                 Don't have an account?
                 <a class="text-primary font-bold text-base transition cursor-pointer hover:underline"

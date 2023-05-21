@@ -60,4 +60,14 @@ class Resep extends Model
     {
         return $this->belongsToMany(Peralatan::class, 'resep_peralatans', 'resep_id', 'peralatan_id');
     }
+
+    /**
+     * Get the user that owns the Resep
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function chef()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'uuid');
+    }
 }
