@@ -4,7 +4,7 @@
           <div class="ml-32 relative">
             <div class="md:w-[179px] md:h-[179px]">
                 <div class="justify-center">
-                    <img src="{{ asset('assets/images/profile.jpg') }}" class="w-[100%] h-[100%] rounded-full relative" alt="" srcset="">                     
+                    <img src="{{ asset('assets/images/profile.jpg') }}" class="w-[100%] h-[100%] rounded-full relative" alt="" srcset="">                 
                 </div>
                 <button class="h-10 w-10 absolute bg-white ml-36 top-28 rounded-full border-solid border-2 border-[#FFB03E] px-2" @click="$store.profile.ToggleModal()">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-[#FFB03E]">
@@ -51,20 +51,22 @@
         </div>
         <p class="font-normal text-xl mx-10 mb-2 text-[#3E3E3E]">Profil Pengguna</p>
         <hr class="border-[#3E3E3E] mx-auto w-[85%]">
-        <form class="px-2 pb-20 md:px-1 w-[85%] mx-auto space-y-4 relative h-auto">
+        <form class="px-2 pb-20 md:px-1 w-[85%] mx-auto space-y-4 relative h-auto" wire:submit.prevent="editProfile" enctype="multipart/form-data">
+            @csrf
             <div class="relative flex py-4">
                 <div class="md:w-24 md:h-24 absolute left-0">
-                    <img src="{{ asset('assets/images/profile.jpg') }}" class="w-[100%] h-[100%] rounded-full relative" alt="" srcset="">                     
+                    <img src="{{ asset('assets/images/profile.jpg') }}" class="w-[100%] h-[100%] rounded-full relative" alt="" srcset="">                   
                 </div>
                 <div class="h-24 ml-32 w-[90%] mt-2">
-                    <label>
-                        <input type="file" class="w-full text-sm text-gray-600
+                    <label for="foto">
+                        <input type="file" class="w-full text-sm text-gray-600 
                         file:mr-4 file:py-2 file:px-4
                         file:rounded-full file:border-0
                         file:text-sm file:font-medium
                         file:bg-primary file:text-black
                         hover:file:bg-[#FFB03E]-600
-                        "/>
+                        " 
+                        wire:model="foto" id="foto"/>
                     </label>
                     <div class="text-black text-xs font-semibold mt-3 pl-2">
                         Gambar Profile Anda sebaiknya memiliki rasio 1:1 dan berukuran tidak lebih dari 2MB.
@@ -75,29 +77,68 @@
                 <label class="block text-base font-semibold mb-2 text-[#3E3E3E]" for="nama">
                   Nama Lengkap
                 </label>
-                <input class="appearance-none border border-[#C5C5C5] rounded-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-[#383838]" id="nama" type="text" placeholder="Nama Lengkap">
+                <input wire:model.defer="nama" class="appearance-none border border-[#C5C5C5] rounded-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-[#383838]" id="nama" type="text" placeholder="Nama Lengkap">
+                @error('nama')
+                <div>
+                    <span class="text-sm text-red-500">{{ $message }}</span>
+                </div>
+                @enderror
             </div>
             <div class="mb-6">
                 <label class="block text-base font-semibold mb-2 text-[#3E3E3E]" for="email">
                   Email
                 </label>
-                <input class="appearance-none border border-[#C5C5C5] rounded-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-[#383838] bg-[#D0D0D0]" id="email" type="text" placeholder="demian@gmail.com" disabled>
-                <p id="helper-text-explanation" class="mt-2 text-sm text-black">Anda dapat merubah email anda melalui menu <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Akun</a>.</p>
+                <input wire:model.defer="email" class="appearance-none border border-[#C5C5C5] rounded-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-[#383838]" id="email" type="text" placeholder="Email">
+                {{-- <p id="helper-text-explanation" class="mt-2 text-sm text-black">Anda dapat merubah email anda melalui menu <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Akun</a>.</p> --}}
+                @error('email')
+                <div>
+                    <span class="text-sm text-red-500">{{ $message }}</span>
+                </div>
+                @enderror
             </div>
+            <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                  <label class="block text-base font-semibold mb-2 text-[#3E3E3E]" for="tgl">
+                    Tanggal Lahir
+                  </label>
+                  <div class="relative max-w-sm">
+                    <input wire:model.defer="tgl" type="date" class="appearance-none border border-[#C5C5C5] rounded-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-[#383838]" id="datepicker" placeholder="Pilih Tanggal">
+                  </div>
+                  @error('tgl')
+                    <div>
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                    </div>
+                  @enderror
+                </div>
+                <div class="w-full md:w-1/2 px-3">
+                  <label class="block text-base font-semibold mb-2 text-[#3E3E3E]" for="jk">
+                    Jenis Kelamin
+                  </label>
+                  <select wire:model.defer="jk" class="appearance-none border border-[#C5C5C5] rounded-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-[#383838]">
+                    <option value="LK">Laki-laki</option>
+                    <option value="PR">Perempuan</option>
+                  </select>
+                </div>
+              </div>
             <div class="mb-6">
-                <label class="block text-base font-semibold mb-2 text-[#3E3E3E]" for="headline">
-                  Headline
+                <label class="block text-base font-semibold mb-2 text-[#3E3E3E]" for="profesi">
+                  Profesi
                 </label>
-                <input class="appearance-none border border-[#C5C5C5] rounded-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-[#383838]" id="headline" type="text" placeholder="Headline">
+                <input wire:model.defer="profesi" class="appearance-none border border-[#C5C5C5] rounded-lg w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-[#383838]" id="headline" type="text" placeholder="Headline">
+                @error('profesi')
+                <div>
+                    <span class="text-sm text-red-500">{{ $message }}</span>
+                </div>
+                @enderror
             </div>
             <div class="mb-6">
-                <label class="block text-base font-semibold mb-2 text-[#3E3E3E]" for="headline">
+                <label class="block text-base font-semibold mb-2 text-[#3E3E3E]" for="bio">
                   Tentang Saya
                 </label>
-                <textarea id="about" rows="4" class="block p-2.5 w-full text-sm rounded-lg border border-[#C5C5C5] focus:outline-none focus:shadow-outline text-[#383838] " placeholder="Tulis Hal Menarik Tentangmu..."></textarea>
+                <textarea  wire:model.defer="bio" id="bio" rows="4" class="block p-2.5 w-full text-sm rounded-lg border border-[#C5C5C5] focus:outline-none focus:shadow-outline text-[#383838] " placeholder="Tulis Hal Menarik Tentangmu..."></textarea>
             </div>
             <div class="relative">
-                <button class="bg-[#FFB03E] hover:bg-gradient-to-r from-[#FFB03E] to-[#F67356] text-white duration-500 px-10 py-3 rounded-full absolute right-0">Simpan</button>
+                <button class="bg-[#FFB03E] hover:bg-gradient-to-r from-[#FFB03E] to-[#F67356] text-white duration-500 px-10 py-3 rounded-full absolute right-0" type="submit">Simpan</button>
             </div>
         </form>
     </x-modal>
@@ -130,6 +171,13 @@
             //     Livewire.emit('ShowDD')
             // }
         }))
+
+
+        $( function() {
+            $( "#datepicker" ).datepicker({                  
+                maxDate: moment().add('d', 0).toDate(),
+            });
+        });
     })
 </script>
 @endpush
