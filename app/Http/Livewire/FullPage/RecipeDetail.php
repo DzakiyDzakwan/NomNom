@@ -10,6 +10,6 @@ class RecipeDetail extends Component
 
     public function render()
     {
-        return view('livewire.recipe-detail')->layout('layouts.main');
+        return view('livewire.recipe-detail')->layout('layouts.main', ['title' => 'Detail Resep']);
     }
 }

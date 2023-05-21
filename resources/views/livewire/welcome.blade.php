@@ -1,6 +1,7 @@
 <div>
     <div class="bg-[url('../../public/assets/images/bg-hero.jpg')] bg-no-repeat bg-contain">
-        <x-navbar></x-navbar>
+        {{--  <x-navbar></x-navbar> --}}
+        @livewire('inline.navbar')
 
 
         <section class="text-gray-600 mt-[72px] mb-12">

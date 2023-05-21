@@ -1,7 +1,7 @@
 <div x-data>
-    <x-navbar></x-navbar>
+    @livewire('inline.navbar')
     <div class="mt-16 relative">
-    @livewire('inline.biodata-section')
+        @livewire('inline.biodata-section')
     </div>
 
 
@@ -14,9 +14,9 @@
             <p class="text-lg mr-4 font-normal">Tampilkan: </p>
             <x-dropdown>
                 <x-slot name="trigger">
-                    <x-button type="filter" :with-gradient=false text="Semua Resep"/>
+                    <x-button type="filter" :with-gradient=false text="Semua Resep" />
                 </x-slot>
-            
+
                 <x-dropdown.item label="Some Conclusion" />
                 <x-dropdown.item separator label="Some Selection" />
                 <x-dropdown.item separator label="Some Sort" />
@@ -27,10 +27,12 @@
 
     <section class="container px-32 mx-auto mb-16 ">
         <div class="flex flex-wrap -m-4">
-            @for ($i = 0; $i < 8; $i++) @livewire('inline.card') @endfor
+            @foreach ($resep as $item)
+                @livewire('inline.card', ['data' => $item], key($item->id))
+            @endforeach
         </div>
     </section>
 
     <x-footer></x-footer>
-    
+
 </div>
