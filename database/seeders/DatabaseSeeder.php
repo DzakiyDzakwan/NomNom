@@ -16,6 +16,11 @@ class DatabaseSeeder extends Seeder
         $this->call(KategoriSeeder::class);
         $this->call(BahanSeeder::class);
         $this->call(PeralatanSeeder::class);
-        $this->call(Userseeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(ResepSeeder::class);
+        $this->call(ResepKategoriSeeder::class);
+        $this->call(ResepBahanSeeder::class);
+        $this->call(ResepPeralatanSeeder::class);
+        /* $this->call(TahapanSeeder::class); */
     }
 }

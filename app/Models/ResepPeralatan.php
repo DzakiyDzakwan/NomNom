@@ -5,11 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ResepUtensill extends Model
+class ResepPeralatan extends Model
 {
     use HasFactory;
 
-    protected $guarded = [
-        'id',
+    protected $fillable = [
+        'resep_id',
+        'peralatan_id'
     ];
+
+    public $timestamps = false;
 }

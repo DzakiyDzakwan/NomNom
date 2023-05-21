@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('resep_bahans', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('resep_id')->unsigned();
-            $table->string('bahan');
+            $table->char('bahan_id', 4);
             $table->bigInteger('jumlah');
             $table->string('satuan');
+            $table->foreign('bahan_id')->references('id')->on('bahans')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
