@@ -4,13 +4,18 @@
     <div>
         @if ($for == 'regular')
             <label for="{{ $id }}"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ $text }}</label>
-            <input type="{{ $type }}" value="{{ $attributes['counter'] }}" {{ $attributes->wire('model') }}
+                class="block mb-2 text-base font-medium text-gray-900 dark:text-white">{{ $text }}</label>
+            <input type="{{ $type }}" placeholder="{{ $placeholder }}" value="{{ $attributes['counter'] }}"
+                class="bg-gray border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        @elseif($for == 'disabled')
+            <label for="{{ $id }}"
+                class="block mb-2 text-base font-medium text-gray-900 dark:text-white">{{ $text }}</label>
+            <input type="{{ $type }}" value="{{ $value }}" disabled
                 class="bg-gray border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         @elseif($for == 'regular-text')
             <div class="flex justify-between">
                 <label for="{{ $id }}"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ $text }}</label>
+                    class="block mb-2 text-base font-medium text-gray-900 dark:text-white">{{ $text }}</label>
                 <span class="text-primary text-sm">Optional</span>
             </div>
             <div class="relative">
@@ -21,7 +26,7 @@
                 </span>
             </div>
         @elseif($for == 'file')
-            <label for="{{ $id }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <label for="{{ $id }}" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">
                 {{ $text }}
             </label>
             <input type="file"
@@ -29,10 +34,10 @@
                 type="file" id="formFile" />
         @elseif ($for == 'textarea')
             <label for="{{ $id }}"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ $text }}</label>
+                class="block mb-2 text-base font-medium text-gray-900 dark:text-white">{{ $text }}</label>
             <textarea rows="4" id=" {{ $id }} "
                 class="bg-gray border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="{{ $placeholder }}" required></textarea>
+                required></textarea>
         @elseif ($for == 'nomor-tahapan')
             <div class="flex justify-center items-center">
                 <div class="rounded-full flex justify-center items-center">
@@ -47,7 +52,7 @@
                 class="bg-gray border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="{{ $placeholder }}" required></textarea>
         @elseif ($for == 'upload-image')
-            <div x-data="showImage()" class="flex items-center justify-center h-fit w-fit">
+            <div x-data="showImage()" class="flex items-center justify-center h-fit w-min">
                 <div class="bg-primary rounded-lg shadow-xl ">
                     <div class="m-4">
                         <div class="flex items-center justify-center w-full">
