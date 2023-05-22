@@ -2,22 +2,22 @@
 
 namespace App\Http\Livewire\Inline;
 
-use App\Models\Resep;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class BiodataSection extends Component
 {
     use WithFileUploads;
-    public  $foto, $nama, $email, $profesi, $bio, $jk, $tgl;
+    public  $uuid, $foto, $nama, $email, $profesi, $bio, $jk, $tgl;
 
     public function render()
     {
         $data = User::where('uuid', Auth::user()->uuid)
         ->first();
+        $this->uuid = $data->uuid;
         $this->email = $data->email;
         $this->nama = $data->nama;
         $this->foto = $data->image;
@@ -37,7 +37,6 @@ class BiodataSection extends Component
                     'email' => 'required|email|unique:users',
                     'profesi' => 'required',
                     'tgl' => 'required|before:today',
-                    'foto' => 'nullable|file'
                 ],
                 [
                     'nama.required' => ':attribute tidak boleh kosong',
@@ -65,7 +64,6 @@ class BiodataSection extends Component
                     'email' => 'required|email',
                     'profesi' => 'required',
                     'tgl' => 'required|before:today',
-                    'foto' => 'nullable|file'
                 ],
                 [
                     'nama.required' => ':attribute tidak boleh kosong',
@@ -87,32 +85,32 @@ class BiodataSection extends Component
             );
         }
         
-
-        if(is_null($this->foto)){
+        if (empty($this->foto)) {
             User::where('uuid', Auth::user()->uuid)
-            ->update([
-                'email' => $this->email,
-                'nama' => $this->nama,
-                'tgl_lahir' => $this->tgl,
-                'jenis_kelamin' => $this->jk,
-                'pekerjaan' => $this->profesi,
-                'bio' => $this->bio
-            ]);
+                ->update([
+                    'email' => $this->email,
+                    'nama' => $this->nama,
+                    'tgl_lahir' => $this->tgl,
+                    'jenis_kelamin' => $this->jk,
+                    'pekerjaan' => $this->profesi,
+                    'bio' => $this->bio
+                ]);
         } else {
-            $imageName = md5($this->foto.
-            microtime()).'.'.$this->foto->extension();
+            $imageName = Carbon::now()->timestamp.'.'.$this->foto->extension();
             $this->foto->storeAs('public/images/user', $imageName);
         
-            User::where('uuid', Auth::user()->uuid)
-            ->update([
-                'email' => $this->email,
-                'nama' => $this->nama,
-                'tgl_lahir' => $this->tgl,
-                'jenis_kelamin' => $this->jk,
-                'pekerjaan' => $this->profesi,
-                'bio' => $this->bio,
-                'image'=> $this->foto = $imageName
-            ]);
+            User::where('uuid', $this->uuid)
+                ->update([
+                    'email' => $this->email,
+                    'nama' => $this->nama,
+                    'image' => $imageName,
+                    'tgl_lahir' => $this->tgl,
+                    'jenis_kelamin' => $this->jk,
+                    'pekerjaan' => $this->profesi,
+                    'bio' => $this->bio
+                ]);
         }
+        
+        
     }
 }
