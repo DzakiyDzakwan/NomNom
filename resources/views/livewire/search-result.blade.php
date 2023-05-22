@@ -33,14 +33,14 @@
             @livewire('inline.filter-button')
         </div>
 
-        <div class="flex flex-wrap -m-4">
+        <div class="flex flex-wrap my-8">
             @foreach ($resep as $item)
                 @livewire('inline.card', ['data' => $item], key($item->id))
             @endforeach
         </div>
 
-        <div class="mb-10">
-            @livewire('pagination')
+        <div class="my-8">
+            {{ $resep->links() }}
         </div>
     </section>
     <x-footer></x-footer>

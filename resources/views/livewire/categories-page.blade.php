@@ -26,10 +26,7 @@
             <h1 class="font-bold text-4xl text-center">Resep berdasarkan kategori</h1>
         </div>
 
-        <div class="mb-8 mt-8">
-            <p class="font-medium text-base text-gray-800 mb-4">Menampilkan <b>33</b> hasil pencarian dengan kategori
-                <b>Breakfast</b>.
-            </p>
+        <div class="my-8">
             <div class="flex gap-3">
                 <x-dropdown>
                     <x-slot name="trigger">
@@ -53,16 +50,21 @@
 
                 @livewire('inline.filter-button')
             </div>
+            <p class="font-medium text-base text-gray-800 mt-4">Menampilkan <b>33</b> hasil pencarian dengan
+                kategori
+                <b>Breakfast</b>.
+            </p>
         </div>
 
-        <div class="flex flex-wrap -m-4">
+        <div class="flex flex-wrap my-8">
             @foreach ($resep as $item)
                 @livewire('inline.card', ['data' => $item], key($item->id))
             @endforeach
         </div>
 
-        <div class="mb-10">
-            @livewire('pagination')
+        <div class="my-8">
+            {{-- @livewire('pagination') --}}
+            {{ $resep->links() }}
         </div>
     </section>
     <x-footer></x-footer>

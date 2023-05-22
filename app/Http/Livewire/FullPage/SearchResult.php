@@ -15,12 +15,12 @@ class SearchResult extends Component
     {
         if($this->filter) {
             if ($this->filter == 2) {
-                $resep = Resep::latest()->paginate(3);
+                $resep = Resep::latest()->paginate(2);
             } else {
-                $resep = Resep::oldest()->paginate(3);
+                $resep = Resep::oldest()->paginate(2);
             }
         } else {
-            $resep = Resep::paginate(3);
+            $resep = Resep::paginate(2);
         }
         return view('livewire.search-result', compact('resep'))->layout('layouts.main', ['title' => 'Hasil Pencarian']);
     }
