@@ -7,18 +7,25 @@ use App\Models\Resep;
 
 class SearchResult extends Component
 {
-    public $counter = 10;
+    public $filter;
 
-    protected $listeners = ['ShowDD'];
+    protected $listeners = ['changeFilter'];
 
     public function render()
     {
-        $resep = Resep::offset(0)->limit(8)->get();
+        if($this->filter) {
+            if ($this->filter == 2) {
+                $resep = Resep::latest()->paginate(3);
+            } else {
+                $resep = Resep::oldest()->paginate(3);
+            }
+        } else {
+            $resep = Resep::paginate(3);
+        }
         return view('livewire.search-result', compact('resep'))->layout('layouts.main', ['title' => 'Hasil Pencarian']);
     }
 
-    public function ShowDD()
-    {
-        dd($this->counter);
+    public function changeFilter($filter_id) {
+        $this->filter = $filter_id;
     }
 }

@@ -53,9 +53,9 @@
     </div>
 
     <section class="container px-24 mt-6 mx-auto">
-        <div class="mb-8">
+        {{-- <div class="mb-8">
             @livewire('inline.filter-button')
-        </div>
+        </div> --}}
 
         <div class="flex flex-wrap -m-4">
             {{-- @for ($i = 0; $i < 4; $i++)
