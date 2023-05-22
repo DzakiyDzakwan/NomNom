@@ -52,7 +52,6 @@
         <p class="font-normal text-xl mx-10 mb-2 text-[#3E3E3E]">Profil Pengguna</p>
         <hr class="border-[#3E3E3E] mx-auto w-[85%]">
         <form class="px-2 pb-20 md:px-1 w-[85%] mx-auto space-y-4 relative h-auto" wire:submit.prevent="editProfile" enctype="multipart/form-data">
-            @csrf
             <div class="relative flex py-4">
                 <div class="md:w-24 md:h-24 absolute left-0">
                     <img src="{{ asset('assets/images/profile.jpg') }}" class="w-[100%] h-[100%] rounded-full relative" alt="" srcset="">                   
@@ -66,7 +65,7 @@
                         file:bg-primary file:text-black
                         hover:file:bg-[#FFB03E]-600
                         " 
-                        wire:model="foto" id="foto"/>
+                        wire:model.defer="foto" id="foto">
                     </label>
                     <div class="text-black text-xs font-semibold mt-3 pl-2">
                         Gambar Profile Anda sebaiknya memiliki rasio 1:1 dan berukuran tidak lebih dari 2MB.
