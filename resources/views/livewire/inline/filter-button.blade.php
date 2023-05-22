@@ -1,15 +1,19 @@
 <x-dropdown>
     <x-slot name="trigger">
-        <x-button type="filter" :with-gradient=false text="Urutkan"/>
+        @if ($label)
+            <x-button type="filter" :with-gradient=false text="{{ $label }}" />
+        @else
+            <x-button type="filter" :with-gradient=false text="Urutkan" />
+        @endif
     </x-slot>
 
-    <x-dropdown.item label="Populer" />
-    <x-dropdown.item separator label="Terbaru" />
-    <x-dropdown.item separator label="Terlama" />
+    <x-dropdown.item wire:click="update(1)" label="Populer" />
+    <x-dropdown.item separator wire:click="update(2)" label="Terbaru" />
+    <x-dropdown.item separator wire:click="update(3)" label="Terlama" />
 </x-dropdown>
 
 {{-- <div x-data="dropdown">
-    @if($type == "kategori")
+    @if ($type == 'kategori')
         <x-dropdown>
             <x-slot name="trigger">
                 <x-button type="filter" :with-gradient=false text="Kategori"/>

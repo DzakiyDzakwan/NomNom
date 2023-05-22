@@ -22,7 +22,7 @@
             </nav>
         </div>
 
-        <div class="bg-white-100 mt-10 shadow-xl rounded-2xl px-5 py-6 text-gray-800">
+        <div class="bg-white mt-10 shadow-xl rounded-2xl px-5 py-6 text-gray-800">
             <h1 class="font-bold text-2xl">Hasil Pencarian.</h1>
             <p class="font-medium text-base pt-1.5">Menampilkan <b>33</b> hasil pencarian dengan keyword
                 <b>"jagunk"</b>.
