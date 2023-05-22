@@ -7,8 +7,6 @@ use Livewire\Component;
 
 class LandingPage extends Component
 {
-    
-
     protected $listeners = ['ShowDD'];
 
     public function render()
