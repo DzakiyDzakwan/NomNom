@@ -25,8 +25,9 @@
 
         {{-- Title, icon --}}
         <div class="px-3">
-            <div class="flex items-center flex-wrap grid grid-cols-2 mt-2">
-                <h1 class="title-font text-base font-bold text-gray-800 w-[180px] mt-1 leading-tight">{{ $data->nama_resep }}</h1>
+            <div class="items-center flex-wrap grid grid-cols-2 mt-2">
+                <h1 class="title-font text-base font-bold text-gray-800 w-[180px] mt-1 leading-tight">
+                    {{ $data->nama_resep }}</h1>
                 <button
                     class="mt-1 border-2 border-opacity-100 rounded-full px-1 py-1 shadow-md lg:ml-auto md:ml-0 ml-auto">
                     <svg class="h-7 w-7 fill-gray hover:fill-[#FFB03E] focus:fill-[#FFB03E] active:fill-[#FFB03E]"
@@ -46,14 +47,16 @@
             <div class="flex flex-wrap mb-2 inset-x-0 bottom-0">
                 </a>
                 <span class="inline-flex items-center leading-none text-sm pr-3 py-1">
-                    <svg class="w-5 h-5 mr-1 fill-[#FFC93F]" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 22 23">
+                    <svg class="w-5 h-5 mr-1 fill-[#FFC93F]" stroke-linecap="round" stroke-linejoin="round"
+                        viewBox="0 0 22 23">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                     </svg>
                     <div class="text-gray-800 text-sm font-medium">4.9</div>
                 </span>
                 <span class="inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm">
-                    <svg class="w-5 h-5 mr-1 fill-[#FFB03E]" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 22 20">
+                    <svg class="w-5 h-5 mr-1 fill-[#FFB03E]" stroke-linecap="round" stroke-linejoin="round"
+                        viewBox="0 0 22 20">
                         <path fill-rule="evenodd"
                             d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
                             clip-rule="evenodd" />

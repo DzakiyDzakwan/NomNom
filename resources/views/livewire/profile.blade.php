@@ -6,8 +6,11 @@
 
     <div class="px-32 relative flex py-10">
         <div class="flex">
-            <div class="group relative block h-full w-fit mx-auto before:absolute before:inset-0 before:rounded before:border-4 before:border-dotted before:border-primary">
-                <button class="px-6 py-2 rounded text-md font-bold text-main border-none bg-primary group-hover:shadow-xl group-hover:-translate-x-1 group-hover:-translate-y-1 transition">List Resep</button>
+            <div
+                class="group relative block h-full w-fit mx-auto before:absolute before:inset-0 before:rounded before:border-4 before:border-dotted before:border-primary">
+                <button
+                    class="px-6 py-2 rounded text-md font-bold text-main border-none bg-primary group-hover:shadow-xl group-hover:-translate-x-1 group-hover:-translate-y-1 transition">List
+                    Resep</button>
             </div>
             <a href="saved-collections" class="ml-10 text-base font-semibold my-auto">Koleksi Tersimpan</a>
         </div>
