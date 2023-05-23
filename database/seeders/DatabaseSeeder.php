@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ResepKategoriSeeder::class);
         $this->call(ResepBahanSeeder::class);
         $this->call(ResepPeralatanSeeder::class);
-        /* $this->call(TahapanSeeder::class); */
+        $this->call(TahapanSeeder::class);
     }
 }
