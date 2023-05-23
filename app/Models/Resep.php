@@ -28,7 +28,7 @@ class Resep extends Model
 
     public function ingredients()
     {
-        return $this->hasMany(Bahan::class, 'resep_id', 'id');
+        return $this->belongsToMany(Bahan::class, 'resep_bahans', 'resep_id', 'bahan_id');
     }
 
     /**

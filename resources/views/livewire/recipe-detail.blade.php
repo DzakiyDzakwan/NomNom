@@ -1,6 +1,5 @@
-<div>
+<div class="text-gray-800">
     @livewire('inline.navbar')
-
     <section class="text-gray-600 mt-[72px] px-32 pt-8 mb-4">
         <nav aria-label="Breadcrumb">
             <ol role="list" class="flex items-center gap-1 text-sm text-gray-500">
@@ -27,27 +26,32 @@
                         <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
                     </svg>
                 </li>
-
+                
                 <li>
-                    <a href="#" class="block transition hover:text-gray-700"> Resep Ikan Gulai Kukus </a>
+                    <a href="#" class="block transition hover:text-gray-700"> {{ $detail->nama_resep }} </a>
                 </li>
+                
             </ol>
         </nav>
     </section>
 
-    <div class="flex flex-col md:flex-row gap-8 mx-32 mb-12 h-screen md:h-[24rem] rounded">
+    <div class="flex flex-col md:flex-row gap-8 mx-32 h-screen md:h-[24rem] rounded">
         <div class="container md:basis-1/2">
-            <img alt="gallery" class="h-full w-full rounded-md" src="{{ asset('assets/images/sarapan.jpg') }}">
+            <img alt="gallery" class="h-full w-full rounded-xl shadow-md" src="{{asset('/storage/images/resep/'.$detail->image)}}">
         </div>
 
         <div class="basis-1/2 space-y-4">
-            <h1 class="text-3xl font-bold">
-                Resep Ikan Gulai Kukus Yang Super Duper Maknyus
+            <h1 class="text-3xl font-bold text-gray-800">
+                {{ $detail->nama_resep }}
             </h1>
 
-            <small class="text-sm font-light">By : Ibu Ida &nbsp; | &nbsp;  At : Mei 11, 2023</small>
+            <?php
+                $date = strtotime($detail->created_at);
+            ?>
 
-            <h3 class="text-lg font-[serif] leading-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae numquam aut quasi quis rem perferendis, dignissimos commodi doloremque quod? Placeat delectus consequatur voluptatibus a repudiandae quibusdam facere officiis tempora amet?</h3>
+            <small class="text-sm font-light">By : {{ $detail->chef->username }} &nbsp; | &nbsp;  At : {{date('M d, Y', $date)}}</small>
+
+            <h3 class="text-base leading-normal font-medium">{{ $detail->deskripsi }}</h3>
 
             <div class="flex items-center justify-between" id="difficulty-time">
                 <div class="flex items-center gap-2">
@@ -57,7 +61,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
 
-                            30 menit
+                            {{ Str::title($detail->durasi) }}
                         </span>
                     </a>
                     <a class="inline-block rounded bg-primary p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75" href="/download">
@@ -66,7 +70,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                             </svg>
 
-                            Mudah
+                            {{ Str::title($detail->kesulitan) }}
                         </span>
                     </a>
                 </div>
@@ -100,11 +104,10 @@
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                 </svg>
 
-                <div class="group relative self-end ml-auto inline-block rounded bg-transparent border-2 border-primary px-8 py-3 text-primary">
-                    <span class="text-md font-black transition-opacity group-hover:opacity-0">
+                <div class="group relative self-end ml-auto inline-block rounded bg-transparent">
+                    {{-- <span class="text-md font-black transition-opacity group-hover:opacity-0">
                         Share on Social
                     </span>
-
                     <ul class="absolute inset-0 flex items-center justify-center gap-3 opacity-0 transition-opacity group-hover:opacity-100">
                         <li>
                             <a class="block rounded-full transition-opacity hover:opacity-90 focus:opacity-75 focus:outline-none" href="/twitter">
@@ -135,44 +138,62 @@
                                 </svg>
                             </a>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </div>
     </div>
 
-    <p class="px-32 text-lg font-[serif] leading-normal mb-12">
+    {{-- <p class="px-32 text-lg font-[serif] leading-normal mb-12">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat commodi rem, nam tempora beatae et magni laborum molestiae illum culpa.
-    </p>
+    </p> --}}
 
-    <div class="mb-12 px-32 text-gray-800 body-font space-y-8">
+    <div class="mb-12 px-32 mt-12 text-gray-800 body-font space-y-8">
         <div class="flex items-start justify-between gap-2">
-            <div class="basis-2/6 space-y-8 border-r">
+            <div class="basis-2/6 space-y-4 border-r">
                 <h1 class="text-3xl font-bold">Porsi</h1>
-                <button>60 porsi</button>
+                <span class="inline-flex items-center justify-center rounded-full bg-transparent border-2 border-[#FFB03E] px-3 py-1 text-[#FFB03E] mt-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />                </svg>
+                <p class="pl-2 whitespace-nowrap text-base font-medium">{{ $detail->porsi }} Porsi</p>
+            </span>
+                <h1 class="text-3xl font-bold">Bahan</h1>
+                <ul class="list-disc list-inside">
+                    @foreach ($detail->ingredients()->get() as $item)
+                        <li class="py-1">
+                            {{ $item->nama_bahan }}
+                        </li>
+                    @endforeach
+                </ul>
+                <h1 class="text-3xl font-bold">Peralatan</h1>
+                <ul class="list-disc list-inside">
+                    @foreach ($detail->utensills()->get() as $item)
+                        <li class="py-1">
+                            {{ $item->nama_peralatan }}
+                        </li>
+                    @endforeach
+                </ul>
             </div>
 
             <div class="basis-4/6 space-y-8">
                 <h1 class="text-3xl font-bold">Cara membuat</h1>
-                @for ($i = 0; $i < 3; $i++) @livewire('inline.step', key($i)) @endfor 
+                    @foreach ($detail->tahapan()->get() as $item)
+                        @livewire('inline.step', ['data' => $item], key($item->urutan))
+                    @endforeach
             </div>
         </div>
 
         <h1 class="text-3xl font-bold">Tags</h1>
         <div class="flex items-center justify-between" id="tags">
             <div class="flex items-center gap-2">
-                <a class="inline-block rounded bg-primary p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75" href="/download">
-                    <span class="flex gap-2 rounded-sm bg-white text-primary hover:bg-transparent hover:text-plain font-black duration-500 px-4 py-2">
-                        Dinner
-                    </span>
-                </a>
-                <a class="inline-block rounded bg-primary p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75" href="/download">
-                    <span class="flex gap-2 rounded-sm bg-white text-primary hover:bg-transparent hover:text-plain font-black duration-500 px-4 py-2">
-                        Gulai
-                    </span>
-                </a>
+                @foreach ($detail->categories()->get() as $item)
+                    <div class="inline-block rounded-full border-2 border-[#FFB03E] px-2 py-1 text-[#FFB03E] shadow-sm">
+                        <span class="flex gap-2 rounded-sm text-primary font-semibold px-4">
+                            {{ $item->nama_kategori }}
+                        </span>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
-
 </div>
