@@ -34,5 +34,12 @@ class BahanSeeder extends Seeder
             'harga' => '1500 / butir',
             'image' => '1684496586.jpg'
         ]);
+
+        Bahan::create([
+            'id' => 'B004',
+            'nama_bahan' => 'Kaki Sapi',
+            'harga' => '50000 / ons',
+            'image' => '1684496587.webp'
+        ]);
     }
 }
