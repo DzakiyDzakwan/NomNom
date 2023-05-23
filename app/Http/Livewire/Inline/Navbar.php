@@ -55,6 +55,7 @@ class Navbar extends Component
             {
                 $this->reset();
                 session()->regenerate();
+                $this->dispatchBrowserEvent('closemodal');
             }
         }
         catch (\Throwable $th)
@@ -65,8 +66,27 @@ class Navbar extends Component
 
     public function login()
     {
+
+        $this->validate(
+            [
+                'username' => 'required',
+                'password' => 'required',
+            ],
+            [
+                'username.required' => ':attribute tidak boleh kosong',
+
+                'password.required' => ':attribute tidak boleh kosong'
+            ],
+            [
+                'username' => 'Username',
+                'password' => 'Kata sandi'
+            ]
+        );
+
         if (Auth::attempt(['username' => $this->username, 'password' => $this->password]))
         {
+            $this->reset();
+            session()->regenerate();
             $this->dispatchBrowserEvent('closemodal');
         }
     }

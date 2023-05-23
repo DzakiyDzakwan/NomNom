@@ -32,22 +32,24 @@
                 tepat.</p>
         </div>
 
-        @livewire('inline.search-bahan')
+        <div class="my-8">
+            @livewire('inline.search-bahan')
+        </div>
 
-        <div class="mb-8 mt-12">
+        <div class="my-8">
             <p class="font-medium text-base pt-1.5 text-gray-800 mb-5">Menampilkan <b>33</b> hasil pencarian berdasarkan
                 bahan yang dipilih</p>
             @livewire('inline.filter-button')
         </div>
 
-        <div class="flex flex-wrap -m-4">
+        <div class="my-8 flex flex-wrap ">
             @foreach ($resep as $item)
                 @livewire('inline.card', ['data' => $item], key($item->id))
             @endforeach
         </div>
 
-        <div class="mb-10">
-            @livewire('pagination')
+        <div class="my-8">
+            {{ $resep->links() }}
         </div>
     </section>
 </div>
