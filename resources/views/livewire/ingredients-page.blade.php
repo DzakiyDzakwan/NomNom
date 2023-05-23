@@ -26,7 +26,7 @@
             </nav>
         </div>
 
-        <div class="bg-white-100 mt-10 shadow-xl rounded-2xl px-5 py-6 text-gray-800">
+        <div class="bg-white mt-10 shadow-xl rounded-2xl px-5 py-6 text-gray-800">
             <h1 class="font-bold text-2xl">Resep berdasarkan bahan masakan.</h1>
             <p class="font-medium text-base pt-1.5">Kombinasikan bahan masakan yang kamu miliki dan temukan resep yang
                 tepat.</p>

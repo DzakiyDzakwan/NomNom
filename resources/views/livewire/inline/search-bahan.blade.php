@@ -11,9 +11,10 @@
                         clip-rule="evenodd"></path>
                 </svg>
             </div>
-            <input wire:model="query" wire:click="$set('kategoriBar', true)" wire:keydown.escape="clear"
-                wire:keydown.tab="clear" type="text" id="simple-search"
-                class="bg-gray text-[#616161] border border-[#C1C1C1] text-gray-900 text-sm focus:ring-primary focus:border-primary block w-full p-2.5 pl-10 rounded-lg mb-1"
+            <input wire:model="query" wire:click="$set('kategoriBar', true)"
+                wire:keydown.escape="$set('kategoriBar', false)" wire:keydown.tab="clear" type="text"
+                id="simple-search"
+                class="bg-gray text-[#616161] border border-[#C1C1C1] text-sm focus:ring-primary focus:border-primary block w-full p-2.5 pl-10 rounded-lg mb-1"
                 placeholder="Cari bahan..." aria-label="Search" />
 
             <div wire:loading
@@ -79,12 +80,11 @@
             @endif --}}
         </div>
     </div>
-    <div class="w-1/2 border border-2 border-[#FFB03E] rounded-lg px-3.5 py-3.5">
+    <div class="w-1/2 border border-[#FFB03E] rounded-lg px-3.5 py-3.5">
         <p class="font-semibold text-base text-gray-800 mb-2.5">Bahan yang dipilih:</p>
 
         @if (!empty($selectedBahan))
             @foreach ($selectedBahan as $tag)
-                {{ var_dump($tag) }}
                 <button id="tag"
                     class="inline-flex items-center gap-1 rounded-full border-2 border-[#FFB03E] bg-transparent px-2 py-0.5 text-base font-medium text-gray-800 transition-colors hover:bg-[#FFB03E] hover:text-white focus:outline-none focus:ring active:opacity-75">
                     {{ $tag['nama_bahan'] }}

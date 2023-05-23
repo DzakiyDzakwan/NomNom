@@ -46,5 +46,27 @@ class ResepPeralatanSeeder extends Seeder
             'resep_id' => 1,
             'peralatan_id' => 'P005'
         ]);
+
+        /* Resep 4 */
+        ResepPeralatan::create([
+            'resep_id' => 4,
+            'peralatan_id' => 'P001'
+        ]);
+
+        ResepPeralatan::create([
+            'resep_id' => 4,
+            'peralatan_id' => 'P002'
+        ]);
+
+        /* Resep 5 */
+        ResepPeralatan::create([
+            'resep_id' => 5,
+            'peralatan_id' => 'P001'
+        ]);
+
+        ResepPeralatan::create([
+            'resep_id' => 5,
+            'peralatan_id' => 'P002'
+        ]);
     }
 }
