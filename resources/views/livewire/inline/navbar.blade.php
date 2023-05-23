@@ -3,7 +3,9 @@
         :class="{ 'bg-white shadow-xl h-[72px]': float, 'h-[86px]': !float }">
         <div class="flex justify-between items-center ">
             <span class="text-2xl cursor-pointer">
-                <img class="h-10 inline md:w-[121px] md:h-[46px]" src="{{ asset('assets/images/logo/logo3.png') }}">
+                <a href="/">
+                    <img class="h-10 inline md:w-[121px] md:h-[46px]" src="{{ asset('assets/images/logo/logo3.png') }}">
+                </a>
             </span>
             <span class="text-3xl cursor-pointer mx-2 md:hidden block">
                 <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
@@ -33,30 +35,21 @@
                     x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
                     x-transition:enter-end="opacity-100 scale-100">
                     <ul class="text-sm text-white font-bold" aria-labelledby="dropdownDefault">
+                        @foreach ($kategori as $item)
+                            <li>
+                                <a href="#"
+                                    class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white first:rounded-t">{{ $item->nama_kategori }}</a>
+                            </li>
+                        @endforeach
                         <li>
-                            <a href="#"
-                                class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white first:rounded-t">Sarapan</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white">Makan
-                                Siang</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white">Makan
-                                Malam</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white last:rounded-b">Cara
-                                Memasak</a>
+                            <a href="/categories"
+                                class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white first:rounded-t">Lainnya</a>
                         </li>
                     </ul>
                 </div>
             </li>
             <li class="mx-4 my-6 md:my-0">
-                <a href="ingredients" class="font-semibold text-base text-[#252525] duration-500">Bahan</a>
+                <a href="/ingredients" class="font-semibold text-base text-[#252525] duration-500">Bahan</a>
             </li>
             <li class="mx-4 my-6 md:my-0">
                 <a>

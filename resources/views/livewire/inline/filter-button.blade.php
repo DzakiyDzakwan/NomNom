@@ -7,9 +7,9 @@
         @endif
     </x-slot>
 
-    <x-dropdown.item wire:click="update(1)" label="Populer" />
-    <x-dropdown.item separator wire:click="update(2)" label="Terbaru" />
-    <x-dropdown.item separator wire:click="update(3)" label="Terlama" />
+    {{-- <x-dropdown.item class="hover:bg-[#FFB03E] hover:text-white" wire:click="update(1)" label="Populer" /> --}}
+    <x-dropdown.item class="hover:bg-[#FFB03E] hover:text-white" separator wire:click="update(2)" label="Terbaru" />
+    <x-dropdown.item class="hover:bg-[#FFB03E] hover:text-white" separator wire:click="update(3)" label="Terlama" />
 </x-dropdown>
 
 {{-- <div x-data="dropdown">
