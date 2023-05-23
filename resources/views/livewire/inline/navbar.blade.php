@@ -53,7 +53,7 @@
             </li>
             <li class="mx-4 my-6 md:my-0">
                 <a>
-                    <form class="flex items-center">
+                    <form class="flex items-center" action="{{ route('search-result', 'search') }}" method="GET">
                         <label for="simple-search" class="sr-only">Search</label>
                         <div class="relative w-full">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -64,9 +64,9 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <input type="text" id="simple-search"
+                            <input type="search" name="search"
                                 class="bg-plain border border-main text-black text-sm focus:ring-blue-500 focus:border-blue-500 block w-[300px] h-[40px] md:w-[360px] pl-10 p-2.5 rounded-lg"
-                                placeholder="Cari resep..." required>
+                                placeholder="Cari resep...">
                         </div>
                     </form>
                 </a>
