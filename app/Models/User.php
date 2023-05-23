@@ -57,6 +57,11 @@ class User extends Authenticatable
         return $this->hasMany(Koleksi::class, 'user_id', 'uuid');
     }
 
+    public function recipes()
+    {
+        return $this->hasMany(Resep::class, 'user_id', 'uuid');
+    }
+
     /**
      * The roles that belong to the User
      *
@@ -64,8 +69,9 @@ class User extends Authenticatable
      */
     public function followers()
     {
-        return $this->belongsToMany(User::class, 'followers', 'uuid', 'user_id');
+        return $this->belongsToMany(User::class, 'follows', 'follower_id', 'follower_id');
     }
+    
 
     public function comments()
     {
