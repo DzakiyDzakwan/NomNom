@@ -1,6 +1,7 @@
-<div>
+<div x-data @closemodal.window="$store.alert.open = true; $store.alert.ToggleAlert()">
     <div class="bg-[url('../../public/assets/images/bg-hero.jpg')] bg-no-repeat bg-contain">
         @livewire('inline.navbar')
+        {{-- @livewire('inline.alert') --}}
 
         <section class="text-gray-600 pt-[86px] mb-12">
             <div class="container mx-auto flex px-24 md:flex-row flex-col items-center relative">
