@@ -8,26 +8,34 @@ use App\Models\Bahan;
 class SearchBahan extends Component
 {
     public $query;
-    public $bahan;
+    public $kategoriBar = false;
+    public $bahan = [];
+    public $listBahan = [];
     public $selectedBahan = [];
 
     public function mount()
     {
-        $this->reset();
+        $data = Bahan::all();
+        foreach ($data as $item) {
+            $this->bahan[] = $item;
+            $this->listBahan[] = $item;
+        }
     }
 
     public function clear()
     {
-        $this->query = '';
-        $this->bahan = [];
+        //
     }
 
     public function updatedQuery()
     {
         sleep(1);
-        $this->bahan = Bahan::where('nama_bahan', 'like', '%' . $this->query . '%')
-            ->get()
-            ->toArray();
+        $this->listBahan = [];
+        foreach ($this->bahan as $item) {
+           if(str_contains(strtolower($item['nama_bahan']), strtolower($this->query))) {
+            $this->listBahan[] = $item;
+           }
+        }
     }
 
     public function render()
@@ -35,17 +43,44 @@ class SearchBahan extends Component
         return view('livewire.inline.search-bahan');
     }
 
-    public function toggleTag($tag)
-    {
-        if (in_array($tag, $this->selectedBahan)) {
-            $this->selectedBahan = array_diff($this->selectedBahan, [$tag]);
-        } else {
-            $this->selectedBahan[] = $tag;
+    public function selectBahan($id) {
+        foreach ($this->bahan as $data) {
+            if(in_array($id, $data)) {
+                $this->selectedBahan[] = $data;
+            }
         }
+
+        $this->bahan = array_udiff($this->bahan, $this->selectedBahan, function($a, $b) {
+            if ($a===$b)
+            {
+                return 0;
+            }
+                return ($a>$b)?1:-1;
+        });
+
+        $this->listBahan = $this->bahan;
+        $this->query = '';
+
+        $this->emit('searchIngredient' , $id);
+
     }
 
-    public function showResep($id)
-    {
-        $this->emit('showResep', $id);
+    public function deleteTag($id) {
+        foreach ($this->selectedBahan as $data) {
+            if(in_array($id, $data)) {
+                $this->bahan[] = $data;
+            }
+        }
+
+        $this->selectedBahan = array_udiff($this->selectedBahan, $this->bahan, function($a, $b) {
+            if ($a===$b)
+            {
+                return 0;
+            }
+                return ($a>$b)?1:-1;
+        });
+
+        $this->listBahan = $this->bahan;
+
     }
 }
