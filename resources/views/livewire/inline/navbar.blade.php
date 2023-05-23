@@ -76,7 +76,7 @@
                             <a href="#" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white first:rounded-t">Profile</a>
                         </li>
                         <li>
-                            <a href="#" wire:click="logout" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white">Logout</a>
+                            <a wire:click="logout" class="cursor-pointer block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white">Logout</a>
                         </li>
                     </ul>
                 </div>
