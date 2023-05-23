@@ -19,7 +19,7 @@ class ResepBahanSeeder extends Seeder
             'resep_id' => 1,
             'bahan_id' => 'B001',
             'jumlah' => 1,
-            'satuan' => 'potong'
+            'satuan' => 'Potong'
         ]);
 
         /* Resep 2 */
@@ -37,5 +37,23 @@ class ResepBahanSeeder extends Seeder
             'jumlah' => 1,
             'satuan' => 'Butir'
         ]);
+
+        /* Resep 4 */
+        ResepBahan::create([
+            'resep_id' => 4,
+            'bahan_id' => 'B002',
+            'jumlah' => 10,
+            'satuan' => 'Potong'
+        ]);
+
+        /* Resep 5 */
+        ResepBahan::create([
+            'resep_id' => 5,
+            'bahan_id' => 'B004',
+            'jumlah' => 5,
+            'satuan' => 'Buah'
+        ]);
+
+
     }
 }

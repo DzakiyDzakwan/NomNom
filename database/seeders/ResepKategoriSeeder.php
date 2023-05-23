@@ -46,5 +46,28 @@ class ResepKategoriSeeder extends Seeder
             'resep_id' => 3,
             'kategori_id' => 'C004'
         ]);
+
+        /* Resep 4 */
+        ResepKategori::create([
+            'resep_id' => 4,
+            'kategori_id' => 'C004'
+        ]);
+
+        ResepKategori::create([
+            'resep_id' => 4,
+            'kategori_id' => 'C002'
+        ]);
+
+        /* Resep 5 */
+        ResepKategori::create([
+            'resep_id' => 5,
+            'kategori_id' => 'C005'
+        ]);
+
+        ResepKategori::create([
+            'resep_id' => 5,
+            'kategori_id' => 'C002'
+        ]);
+
     }
 }
