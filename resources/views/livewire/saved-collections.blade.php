@@ -1,14 +1,15 @@
 <div x-data>
     @livewire('inline.navbar')
-    <div class="mt-16 relative">
+    <div class="mt-20 relative">
         @livewire('inline.biodata-section')
     </div>
 
-
     <div class="px-32 relative flex py-10">
         <div class="flex">
-            <a href="profile" class="text-base font-semibold my-auto mr-10">List Resep</a>
-            <x-button type="regular" :with-gradient=false text="Koleksi Tersimpan"></x-button>
+            <a href="saved-collections" class="mr-10 text-base font-semibold my-auto">List Resep</a>
+            <div class="group relative block h-full w-fit mx-auto before:absolute before:inset-0 before:rounded before:border-4 before:border-dotted before:border-primary">
+                <button class="px-6 py-2 rounded text-md font-bold text-main border-none bg-primary group-hover:shadow-xl group-hover:-translate-x-1 group-hover:-translate-y-1 transition">Koleksi Tersimpan</button>
+            </div>
         </div>
         <div class="absolute right-32 flex my-auto">
             <p class="text-lg mr-4 font-normal">Tampilkan: </p>
@@ -41,6 +42,4 @@
         </div>
     </section>
 </div>
-<x-footer></x-footer>
-
 </div>

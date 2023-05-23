@@ -9,6 +9,9 @@
             </span>
         </div>
         <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+            <li class="mx-4 my-6 md:my-0">
+                <a href="/" class="font-semibold text-base text-[#252525] duration-500">Beranda</a>
+            </li>
             <li class="mx-4 my-6 md:my-0" x-data="{open: false, ToggleDropdown() { this.open = !this.open }}">
                 <button id="dropdownOffsetButton" data-dropdown-toggle="dropdownOffset" data-dropdown-offset-distance="10" data-dropdown-offset-skidding="100" data-dropdown-placement="left" class="flex items-center gap-2 font-semibold text-base text-[#252525] duration-500" @click="ToggleDropdown">
                     Kategori
@@ -20,26 +23,22 @@
                 <div id="dropdownOffset" class="z-10 bg-primary ring-2 ring-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 absolute mt-2" x-show="open" @click.outside="open = false" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
                     <ul class="text-sm text-white font-bold" aria-labelledby="dropdownDefault">
                         <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white first:rounded-t">Dashboard</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white first:rounded-t">Sarapan</a>
                         </li>
                         <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white">Makan Siang</a>
                         </li>
                         <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white">Makan Malam</a>
                         </li>
                         <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white last:rounded-b">Sign
-                                out</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white last:rounded-b">Cara Memasak</a>
                         </li>
                     </ul>
                 </div>
             </li>
             <li class="mx-4 my-6 md:my-0">
-                <a href="#" class="font-semibold text-base text-[#252525] duration-500">Jenis Makanan</a>
-            </li>
-            <li class="mx-4 my-6 md:my-0">
-                <a href="#" class="font-semibold text-base text-[#252525] duration-500">Bahan</a>
+                <a href="ingredients" class="font-semibold text-base text-[#252525] duration-500">Bahan</a>
             </li>
             <li class="mx-4 my-6 md:my-0">
                 <a>
@@ -73,7 +72,7 @@
                 <div id="dropdownOffset" class="z-10 bg-primary ring-2 ring-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 absolute mt-2"  x-show="open" @click.outside="open = false" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
                     <ul class="text-sm text-white font-bold" aria-labelledby="dropdownDefault">
                         <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white first:rounded-t">Profile</a>
+                            <a href="/profile" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white first:rounded-t">Profile</a>
                         </li>
                         <li>
                             <a href="#" wire:click="logout" class="block px-4 py-2 hover:bg-orange-500 dark:hover:bg-gray-600 dark:hover:text-white">Logout</a>
@@ -171,7 +170,7 @@
             <img src="{{ asset('assets/images/logo/logo_nomnom5baru_3.png') }}" alt="NomNom Logo" class="w-40 md:w-36">
         </div>
         <form wire:submit.prevent="login" class="px-2 pt-5 pb-10 md:px-4 w-[75%] mx-auto space-y-4">
-            @csrf
+            {{-- @csrf --}}
             <x-forms wire:model.defer="username" for="regular" id="username" text="Username" type="text" placeholder="Username, Email"></x-forms>
             <x-forms wire:model.defer="password" for="regular" id="password" text="Password" type="password" placeholder="Password"></x-forms>
             <x-button type="regular" :withGradient=false text="Login" class="w-full">
