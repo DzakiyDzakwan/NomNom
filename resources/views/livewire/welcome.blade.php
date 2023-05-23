@@ -1,10 +1,8 @@
 <div>
     <div class="bg-[url('../../public/assets/images/bg-hero.jpg')] bg-no-repeat bg-contain">
-        {{--  <x-navbar></x-navbar> --}}
         @livewire('inline.navbar')
 
-
-        <section class="text-gray-600 mt-[72px] mb-12">
+        <section class="text-gray-600 pt-[86px] mb-12">
             <div class="container mx-auto flex px-24 md:flex-row flex-col items-center relative">
                 <div
                     class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-[5rem] items-center text-center mt-12">
@@ -58,9 +56,6 @@
         </div> --}}
 
         <div class="flex flex-wrap -m-4">
-            {{-- @for ($i = 0; $i < 4; $i++)
-                @livewire('inline.card', key($i))
-            @endfor --}}
             @foreach ($resep as $item)
                 @livewire('inline.card', ['data' => $item], key($item->id))
             @endforeach
@@ -70,8 +65,6 @@
     <div class="text-center mt-9">
         <x-button type="rounded" :with-gradient=true text="Lihat Lainnya"></x-button>
     </div>
-
-    {{-- @livewire('pagination') --}}
 
     @livewire('inline.faq')
 
@@ -95,6 +88,4 @@
             </svg>
         </span>
     </button>
-
-    <x-footer></x-footer>
 </div>

@@ -35,8 +35,8 @@
             flex 
             items-end 
             justify-center 
-            mx-auto 
-            sm:items-start 
+            mx-auto
+            sm:items-center 
             sm:max-w-lg
     }
 

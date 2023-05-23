@@ -17,7 +17,8 @@ class Navbar extends Component
         return view('livewire.inline.navbar');
     }
 
-    public function register() {
+    public function register()
+    {
         $this->validate(
             [
                 'username' => 'required|unique:users',
@@ -41,7 +42,8 @@ class Navbar extends Component
             ]
         );
 
-        try {
+        try
+        {
             User::create([
                 'username' => $this->username,
                 'email' => $this->email,
@@ -49,26 +51,31 @@ class Navbar extends Component
                 'role' => '3'
             ]);
 
-            if(Auth::attempt(['username' => $this->username, 'password' => $this->password])){
+            if (Auth::attempt(['username' => $this->username, 'password' => $this->password]))
+            {
                 $this->reset();
                 session()->regenerate();
             }
-        } catch (\Throwable $th) {
+        }
+        catch (\Throwable $th)
+        {
             dd($th);
         }
-
     }
 
-    public function login() {
-        if(Auth::attempt(['username' => $this->username, 'password' => $this->password])){
-            $this->reset();
-            session()->regenerate();
-            $this->dispatchBrowserEvent('close-modal');
+    public function login()
+    {
+        if (Auth::attempt(['username' => $this->username, 'password' => $this->password]))
+        {
+            $this->dispatchBrowserEvent('closemodal');
         }
     }
 
-    public function logout() {
+    public function logout()
+    {
         Auth::logout();
-        session()->invalidate();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect()->to('/');
     }
 }

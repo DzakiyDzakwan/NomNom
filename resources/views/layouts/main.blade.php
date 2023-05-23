@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf_token" value="{{ csrf_token() }}" />
 
     {{-- <title>{{ env('APP_NAME') }}</title> --}}
     <title>{{ $title }}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/x-icon">
 
@@ -40,9 +40,12 @@
     </style>
 </head>
 
-<body class="antialiased bg-plain overflow-x-hidden">
+<body class="antialiased bg-plain overflow-x-hidden" x-data :class="{'overflow-y-hidden' : $store.body.dim}">
 
     {{ $slot }}
+
+    {{-- FOOTER --}}
+    <x-footer></x-footer>
 
     {{-- WIREUI --}}
     <wireui:scripts /> {{-- OR @wireUiScripts --}}
@@ -53,7 +56,24 @@
     {{-- LIVEWIRE --}}
     @livewireScripts
 
+    {{-- COMPONENTS --}}
     @stack('component-script')
+
+    {{-- BODY STORE --}}
+    <script>
+        Livewire.onPageExpired((response, message) => 
+        {
+            location.reload()
+        })
+
+        document.addEventListener('alpine:init', () => 
+        {
+            Alpine.store(`body`,
+            {
+                dim: false,
+            })
+        })
+    </script>
 </body>
 
 </html>
