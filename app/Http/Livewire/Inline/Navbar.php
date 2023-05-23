@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Inline;
 
+use App\Models\Kategori;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +15,8 @@ class Navbar extends Component
 
     public function render()
     {
-        return view('livewire.inline.navbar');
+        $kategori = Kategori::limit(4)->get();
+        return view('livewire.inline.navbar', compact('kategori'));
     }
 
     public function register()

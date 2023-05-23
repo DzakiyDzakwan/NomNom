@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\FullPage;
 
+use App\Models\Kategori;
 use Livewire\Component;
 use App\Models\Resep;
 use Livewire\WithPagination;
@@ -11,9 +12,9 @@ class CategoriesPage extends Component
 
     use WithPagination;
 
-    public $filter, $kategori, $subkategori;
+    public $filter, $kategori;
 
-    protected $listeners = ['changeFilter'];
+    protected $listeners = ['changeFilter','changeKategori'];
     
     public function render()
     {
@@ -32,5 +33,10 @@ class CategoriesPage extends Component
 
     public function changeFilter($filter_id) {
         $this->filter = $filter_id;
+    }
+
+    public function changeKategori($kategori_id) {
+        $data = Kategori::where('id', $kategori_id)->first();
+        $this->kategori = $data;
     }
 }
