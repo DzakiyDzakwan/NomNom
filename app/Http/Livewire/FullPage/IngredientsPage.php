@@ -7,10 +7,11 @@ use App\Models\Resep;
 
 class IngredientsPage extends Component
 {
-    public $counter = 10;
+
+    public $bahan = [];
 
     protected $listeners = [
-        'showResep'=> 'render',
+        'searchIngredient',
     ];
 
     public function render()
@@ -21,7 +22,11 @@ class IngredientsPage extends Component
         ->join('bahans', 'bahans.id', '=', $id)
         ->get(); */
 
-        $resep = Resep::offset(0)->limit(8)->get();
+        $resep = Resep::paginate(2);
         return view('livewire.ingredients-page', compact('resep'))->layout('layouts.main', ['title' => 'Bahan']);
+    }
+
+    public function searchIngredient($id) {
+        $this->bahan[] = $id;
     }
 }
