@@ -55,6 +55,7 @@ class Navbar extends Component
             {
                 $this->reset();
                 session()->regenerate();
+                $this->dispatchBrowserEvent('closemodal');
             }
         }
         catch (\Throwable $th)
@@ -67,6 +68,8 @@ class Navbar extends Component
     {
         if (Auth::attempt(['username' => $this->username, 'password' => $this->password]))
         {
+            $this->reset();
+            session()->regenerate();
             $this->dispatchBrowserEvent('closemodal');
         }
     }
