@@ -44,8 +44,7 @@ class Navbar extends Component
             ]
         );
 
-        try
-        {
+        try {
             User::create([
                 'username' => $this->username,
                 'email' => $this->email,
@@ -53,15 +52,12 @@ class Navbar extends Component
                 'role' => '3'
             ]);
 
-            if (Auth::attempt(['username' => $this->username, 'password' => $this->password]))
-            {
+            if (Auth::attempt(['username' => $this->username, 'password' => $this->password])) {
                 $this->reset();
                 session()->regenerate();
-                $this->dispatchBrowserEvent('closemodal');
+                $this->dispatchBrowserEvent('closemodal', ['pesan' => 'berhasil yeay']);
             }
-        }
-        catch (\Throwable $th)
-        {
+        } catch (\Throwable $th) {
             dd($th);
         }
     }
@@ -85,11 +81,10 @@ class Navbar extends Component
             ]
         );
 
-        if (Auth::attempt(['username' => $this->username, 'password' => $this->password]))
-        {
+        if (Auth::attempt(['username' => $this->username, 'password' => $this->password])) {
             $this->reset();
             session()->regenerate();
-            $this->dispatchBrowserEvent('closemodal');
+            $this->dispatchBrowserEvent('closemodal', ['pesan' => 'berhasil yeay']);
         }
     }
 

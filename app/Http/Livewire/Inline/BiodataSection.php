@@ -13,7 +13,8 @@ class BiodataSection extends Component
     use WithFileUploads;
     public  $uuid, $foto, $nama, $username, $email, $profesi, $bio, $jk, $tgl;
 
-    public function mount() {
+    public function mount()
+    {
         $this->uuid = Auth::user()->uuid;
         $this->email = Auth::user()->email;
         $this->nama = Auth::user()->nama;
@@ -24,7 +25,8 @@ class BiodataSection extends Component
         $this->bio = Auth::user()->bio;
     }
 
-    public function updated($fields) {
+    public function updated($fields)
+    {
         $this->validate(
             [
                 'foto' => 'image|max:2048',
@@ -36,7 +38,7 @@ class BiodataSection extends Component
             [
                 'foto' => 'Foto profile',
             ]
-            );
+        );
     }
 
     public function render()
@@ -45,13 +47,14 @@ class BiodataSection extends Component
     }
 
 
-    public function editProfile() {
+    public function editProfile()
+    {
         $imageName = null;
 
         try {
 
-            if($this->foto) {
-                $imageName = Carbon::now()->timestamp.'.'.$this->foto->extension();
+            if ($this->foto) {
+                $imageName = Carbon::now()->timestamp . '.' . $this->foto->extension();
                 $this->foto->storeAs('public/images/user', $imageName);
             } else {
                 $imagName = Auth::user()->image;
@@ -69,12 +72,12 @@ class BiodataSection extends Component
                     'bio' => $this->bio
                 ]);
 
-            $this->dispatchBrowserEvent('closemodal');
+            $this->dispatchBrowserEvent('closemodal', ['pesan' => 'berhasil yeay']);
         } catch (\Throwable $th) {
             dd($th);
         }
-    
-       /*  if($this->email != Auth::user()->email){
+
+        /*  if($this->email != Auth::user()->email){
             $this->validate(
                 [
                     'nama' => 'required',
@@ -84,13 +87,13 @@ class BiodataSection extends Component
                 ],
                 [
                     'nama.required' => ':attribute tidak boleh kosong',
-    
+
                     'email.email' => 'Format penulisan :attribute salah',
                     'email.required' => ':attribute tidak boleh kosong',
                     'email.unique' => ':attribute sudah tersedia',
-    
+
                     'profesi.required' => ':attribute tidak boleh kosong',
-    
+
                     'tgl.required' => ':attribute tidak boleh kosong',
                     'tgl.before' => ':attribute salah'
                 ],
@@ -111,12 +114,12 @@ class BiodataSection extends Component
                 ],
                 [
                     'nama.required' => ':attribute tidak boleh kosong',
-    
+
                     'email.email' => 'Format penulisan :attribute salah',
                     'email.required' => ':attribute tidak boleh kosong',
-    
+
                     'profesi.required' => ':attribute tidak boleh kosong',
-    
+
                     'tgl.required' => ':attribute tidak boleh kosong',
                     'tgl.before' => ':attribute salah'
                 ],
@@ -128,7 +131,7 @@ class BiodataSection extends Component
                 ]
             );
         }
-        
+
         if (empty($this->foto)) {
             User::where('uuid', Auth::user()->uuid)
                 ->update([
@@ -139,10 +142,11 @@ class BiodataSection extends Component
                     'pekerjaan' => $this->profesi,
                     'bio' => $this->bio
                 ]);
+            $this->dispatchBrowserEvent('closemodal');
         } else {
-            $imageName = Carbon::now()->timestamp.'.'.$this->foto->extension();
+            $imageName = Carbon::now()->timestamp . '.' . $this->foto->extension();
             $this->foto->storeAs('public/images/user', $imageName);
-        
+
             User::where('uuid', $this->uuid)
                 ->update([
                     'email' => $this->email,

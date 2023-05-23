@@ -1,6 +1,8 @@
-<div x-data>
+<div x-data @closemodal.window="$store.alert.open = true; $store.alert.ToggleAlert()">
+
     @livewire('inline.navbar')
     <div class="mt-20 relative">
+        @livewire('inline.alert')
         @livewire('inline.biodata-section')
     </div>
 
@@ -29,12 +31,11 @@
         </div>
     </div>
 
-    <section class="container px-32 mx-auto mb-16 ">
+    <section class="container px-16 mx-auto text-gray-600 body-font pb-16">
         <div class="flex flex-wrap -m-4">
             @foreach ($resep as $item)
                 @livewire('inline.card', ['data' => $item], key($item->id))
             @endforeach
         </div>
     </section>
-
 </div>
