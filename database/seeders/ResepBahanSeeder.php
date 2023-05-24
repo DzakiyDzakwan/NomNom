@@ -54,6 +54,28 @@ class ResepBahanSeeder extends Seeder
             'satuan' => 'Buah'
         ]);
 
+        /* Resep 6 */
+        ResepBahan::create([
+            'resep_id' => 6,
+            'bahan_id' => 'B005',
+            'jumlah' => 6,
+            'satuan' => 'Buah'
+        ]);
 
+        /* Resep 7 */
+        ResepBahan::create([
+            'resep_id' => 7,
+            'bahan_id' => 'B006',
+            'jumlah' => 7,
+            'satuan' => 'Buah'
+        ]);
+
+        /* Resep 8 */
+        ResepBahan::create([
+            'resep_id' => 8,
+            'bahan_id' => 'B007',
+            'jumlah' => 8,
+            'satuan' => 'Buah'
+        ]);
     }
 }

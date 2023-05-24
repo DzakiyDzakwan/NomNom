@@ -8,8 +8,7 @@
                   </a>
                   <ul class="text-white font-normal font-Poppins text-sm">
                     <li class="mb-4 ml-5">
-                        <a href="#" class="hover:underline [word-spacing:6px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ex est, mattis quis iaculis vitae, dapibus vel lacus. 
-                          In suscipit mattis libero non hendrerit.</a>
+                        <a href="#" class="hover:underline [word-spacing:6px]">Misi kami di NomNom adalah membuat masak sehari-hari semakin mudah dan menyenangkan, karena kami percaya bahwa memasak merupakan basic skill sebagai kunci menuju kehidupan yang lebih sehat.</a>
                     </li>
                 </ul>
               </div>

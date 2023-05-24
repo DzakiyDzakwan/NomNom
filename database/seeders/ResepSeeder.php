@@ -68,5 +68,38 @@ class ResepSeeder extends Seeder
             'porsi' => '1',
             'kesulitan' => 'sulit',
         ]);
+
+        /* Resep 6 */
+        Resep::create([
+            'user_id' => '99369fd9-6c17-4d70-a4de-6c6c05612473',
+            'nama_resep' => 'Mango Sago Cocok Untuk Takjil',
+            'image' => '1784496506.jpg',
+            'deskripsi' => 'Es mangga sagu mutiara adalah hidangan penutup asyik saat hari sedang panas-panasnya. Ingin segera melepas dahaga? Yuk, cek resepnya di sini!',            
+            'durasi' => '30 menit',
+            'porsi' => '2',
+            'kesulitan' => 'mudah',
+        ]);
+
+        /* Resep 7 */
+        Resep::create([
+            'user_id' => '99369fd9-568a-4d42-933d-876ceb39401b',
+            'nama_resep' => 'Es Kuwut Khas Bali',
+            'image' => '1784496507.jpg',
+            'deskripsi' => 'Satu lagi menu takjil manis segar khas Bali yang lagi viral, resep es kuwut! Wajib coba untuk buka puasa hari ini!',            
+            'durasi' => '30 menit',
+            'porsi' => '2',
+            'kesulitan' => 'mudah',
+        ]);
+
+        /* Resep 8 */
+        Resep::create([
+            'user_id' => '99369fd9-8192-4d7d-9ed6-4feca0677e9d',
+            'nama_resep' => 'Strawberry Cake Orange Marmalade',
+            'image' => '1784496508.jpg',
+            'deskripsi' => 'Ciptakan sendiri strawberry cake dengan sensasi jeruk buat kamu yang suka dengan dessert rasa buah. Yuk, cobain resepnya!',            
+            'durasi' => '2 jam',
+            'porsi' => '5',
+            'kesulitan' => 'sulit',
+        ]);
     }
 }
