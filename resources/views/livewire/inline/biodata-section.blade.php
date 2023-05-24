@@ -261,38 +261,39 @@
             </div>
         </form>
     </x-modal>
+</div>
 
-    @push('component-script')
-        <script>
-            document.addEventListener('alpine:init', () => {
-                Alpine.data('biodata-section', () => ({
-                    open: false,
-                    OpenDropdown() {
-                        this.open = true;
-                    },
+@push('component-script')
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('biodata-section', () => ({
+                open: false,
+                OpenDropdown() {
+                    this.open = true;
+                },
 
-                    counter: @entangle('counter').defer,
+                counter: @entangle('counter').defer,
 
-                    init() {
-                        // this.$nextTick(() => 
-                        // { 
-                        //     this.counter = 1000 
-                        // })
-                    },
+                init() {
+                    // this.$nextTick(() => 
+                    // { 
+                    //     this.counter = 1000 
+                    // })
+                },
 
-                    // Increment()
-                    // {
-                    //     this.counter++,
-                    //     Livewire.emit('ShowDD')
-                    // }
-                }))
+                // Increment()
+                // {
+                //     this.counter++,
+                //     Livewire.emit('ShowDD')
+                // }
+            }))
 
 
-                $(function() {
-                    $("#datepicker").datepicker({
-                        maxDate: moment().add('d', 0).toDate(),
-                    });
-                });
-            })
-        </script>
-    @endpush
+            // $(function() {
+            //     $("#datepicker").datepicker({
+            //         maxDate: moment().add('d', 0).toDate(),
+            //     });
+            // });
+        })
+    </script>
+@endpush

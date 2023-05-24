@@ -30,7 +30,7 @@
         <p class="font-normal text-base pt-1.5">Buatlah resep versimu sendiri dan posting agar dapat dilihat banyak orang!</p>
     </div>
 
-    <form>
+    <form wire:submit.prevent="CreateRecipe" enctype="multipart/form-data">
         <div id="steps" class="flex flex-wrap shadow-xl bg-white rounded-2xl px-8 py-10 mx-32 mb-12 text-gray-800" x-data="steps">
             <div class="basis-full mb-8">
                 <p class="text-xs font-medium text-secondary" x-text="progress"></p>
@@ -359,5 +359,18 @@
             }
         }))
     })
+
+    function showImage() {
+        return {
+            showPreview(event) {
+                if (event.target.files.length > 0) {
+                    var src = URL.createObjectURL(event.target.files[0]);
+                    var preview = document.getElementById("preview");
+                    preview.src = src;
+                    preview.style.display = "block";
+                }
+            }
+        }
+    }
 </script>
 @endPushOnce
