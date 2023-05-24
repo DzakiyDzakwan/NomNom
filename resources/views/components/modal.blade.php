@@ -1,4 +1,4 @@
-<div {{ $attributes->merge(['class' => 'fixed inset-0 overflow-y-auto p-4 z-50 ' . $name]) }} x-data="$store.{{ $name }}" @closemodal.window="$store.{{  $name }}.open = false; $store.body.dim = false" x-show="open" x-cloak x-transition:enter.duration.250ms x-transition:leave.duration.500ms>
+<div {{ $attributes->merge(['class' => 'fixed inset-0 overflow-y-auto p-4 z-50 ' . $name]) }} x-data="$store.{{ $name }}" @closemodal.window="$store.{{ $name }}.open = false; $store.body.dim = false" x-show="open" x-cloak x-transition:enter.duration.250ms x-transition:leave.duration.500ms>
     <div class="modal-backdrop"></div>
     <div class="modal-container" >
         <div class="modal" x-transition.duration.150ms>

@@ -1,4 +1,4 @@
-<div x-data="button">
+<div>
     @if($type == "rounded" && $withGradient)
         <button {{ $attributes->merge(['class' => "bg-[#FFB03E] hover:bg-gradient-to-r from-[#FFB03E] to-[#F67356] text-white duration-500 px-16 py-2 rounded-full "]) }}>
             {{-- {{ $icon }} --}}
@@ -6,8 +6,8 @@
         </button>
     @elseif($type == "rounded" && !$withGradient)
         <div {{ $attributes->merge(['class' => 'group relative block h-full mx-auto before:absolute before:inset-0 before:rounded-full before:border-4 before:border-dotted before:border-primary']) }}>
-            <button class="px-6 py-2 rounded-full text-md font-bold text-main group-hover:shadow-xl border-none bg-primary group-hover:-translate-x-1 group-hover:-translate-y-1 transition">
-                {{-- {{ $icon }} --}}
+            <button type="button" class="px-6 py-2 rounded-full text-md font-bold text-plain group-hover:shadow-xl border-none bg-primary group-hover:-translate-x-1 group-hover:-translate-y-1 transition">
+                {{-- {{ $attributes }} --}}
                 {{ $text }}
             </button>
         </div>
@@ -32,18 +32,3 @@
         </button>
     @endif
 </div>
-
-@pushOnce('component-script')
-<script>
-    document.addEventListener('alpine:init', () => 
-    {
-        Alpine.data('button', () => (
-        {
-            init() 
-            {
-                
-            },
-        }))
-    })
-</script>
-@endPushOnce
