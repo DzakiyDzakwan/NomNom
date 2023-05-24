@@ -68,6 +68,5 @@ class ResepKategoriSeeder extends Seeder
             'resep_id' => 5,
             'kategori_id' => 'C002'
         ]);
-
     }
 }

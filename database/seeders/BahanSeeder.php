@@ -41,5 +41,26 @@ class BahanSeeder extends Seeder
             'harga' => '50000 / ons',
             'image' => '1684496587.webp'
         ]);
+
+        Bahan::create([
+            'id' => 'B005',
+            'nama_bahan' => 'Mangga',
+            'harga' => '30000 / kg',
+            'image' => '1684496588.jpg'
+        ]);
+
+        Bahan::create([
+            'id' => 'B006',
+            'nama_bahan' => 'Kelapa',
+            'harga' => '10000 / buah',
+            'image' => '1684496589.webp'
+        ]);
+
+        Bahan::create([
+            'id' => 'B007',
+            'nama_bahan' => 'Stroberi',
+            'harga' => '25000 / ons',
+            'image' => '1684496590.jpg'
+        ]);
     }
 }
