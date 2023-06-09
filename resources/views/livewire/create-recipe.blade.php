@@ -44,43 +44,57 @@
                 <div class="px-8">
                     <div class="mb-4 flex flex-wrap">
                         <div class="w-full md:w-1/2 px-4">
-                            <x-forms wire:model.defer="judul" for="regular" type="text" id="Judul" text="Judul" placeholder=" "></x-forms>
+                            <x-forms wire:model.defer="nama_resep" for="regular" type="text" id="Judul" text="Judul" placeholder=" "></x-forms>
+                            @error('nama_resep')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="w-full md:w-1/2 px-4">
-                            <x-forms wire:model for="file" id="thumbnail" text="Thumbnail"></x-forms>
+                            <x-forms wire:model.defer="image" for="file" id="image" text="Image"></x-forms>
+                            @error('image')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="w-full mb-6 px-4">
-                        <x-forms for="textarea" id="deskripsi" text="Deskripsi">
-                        </x-forms>
+                        <x-forms wire:model.defer="deskripsi" for="textarea" id="deskripsi" text="Deskripsi"></x-forms>
+                        @error('deskripsi')
+                        <span class="text-sm text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="w-full mb-6 px-4">
-                        <label class="block mb-2  font-medium dark:text-white">Kategori</label>
-                        <div class="pb-2">
-                            <select data-te-select-init class="pb-8 bg-gray border border-gray-300 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option value="1">Ocassion</option>
-                                <option value="2">Jam</option>
-                            </select>
-                        </div>
-                        <div class="pb-2">
-                            <div class="flex justify-end">
-                                <select data-te-select-init class="mr-2 bg-gray border border-gray-300 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option value="1">Meals</option>
-                                    <option value="2">Jam</option>
-                                </select>
-                                <button class="flex items-center  justify-end">
-                                    <span>
-                                        <svg class="h-8 w-8 fill-gray hover:fill-[#FF0000] focus:fill-[#FFB03E] active:fill-[#FF0000]" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8.933-2.721-2.722c-.146-.146-.339-.219-.531-.219-.404 0-.75.324-.75.749 0 .193.073.384.219.531l2.722 2.722-2.728 2.728c-.147.147-.22.34-.22.531 0 .427.35.75.751.75.192 0 .384-.073.53-.219l2.728-2.728 2.729 2.728c.146.146.338.219.53.219.401 0 .75-.323.75-.75 0-.191-.073-.384-.22-.531l-2.727-2.728 2.717-2.717c.146-.147.219-.338.219-.531 0-.425-.346-.75-.75-.75-.192 0-.385.073-.531.22z" fill-rule="nonzero" />
-                                        </svg>
-                                    </span>
-                                </button>
+                        <label class="block mb-2 font-medium dark:text-white">Kategori</label>
+                        <div class="pb-2 space-y-3">
+                            @foreach($arrayOfKategori as $i => $v)
+                            <div class="space-y-1">
+                                <div>
+                                    <select class="py-4 border border-gray-300 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" wire:model="kategori.{{ $i }}">
+                                        <option value=""></option>
+                                        @foreach(\App\Models\Kategori::query()->get() as $e)
+                                        <option value="{{ $e->id }}">{{ $e->nama_kategori }} {{ $v }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('kategori.'.$i)
+                                    <span class="text-sm text-red-500">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div>
+                                    <div class="flex">
+                                        <select class="border border-gray-300 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled>
+                                            @foreach(\App\Models\SubKategori::query()->whereHas('categories', fn($q) => $q->where('kategoris.id', $kategori[$i]))->get() as $sub)
+                                            <option value="{{ $sub->id }}">{{ $sub->nama_sub_kategori }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
+                            @endforeach
                         </div>
-                        <div class="text-right mb-6">
-                            <button class="inline-flex items-center gap-1 rounded-full border-2 border-[#FFB03E] bg-transparent px-2 py-1 text-base font-medium text-gray-800 transition-colors hover:bg-[#FFB03E] hover:text-white focus:outline-none focus:ring active:opacity-75" href="#" rel="noreferrer">
+                        @if($i + 1 < 3)
+                        <div class="mb-6">
+                            <button type="button" class="inline-flex items-center gap-1 rounded-full border-2 border-[#FFB03E] bg-transparent px-2 py-1 text-sm text-gray-800 transition-colors hover:bg-[#FFB03E] hover:text-white focus:outline-none focus:ring active:opacity-75" href="#" rel="noreferrer" wire:click="AddNewKategori">
                                 Tambah
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -88,44 +102,67 @@
                                 </svg>
                             </button>
                         </div>
+                        @endif
                     </div>
 
-                    <div class="w-full mb-6 px-4">
-                        <x-forms for="regular" type="number" id="email" text="Porsi" placeholder=" "></x-forms>
+                    <div class="w-full mb-6 px-4 flex gap-x-4">
+                        <div class="w-full md:w-1/2">
+                            <x-forms wire:model.defer="porsi" for="regular" type="number" id="porsi" text="Porsi" placeholder=""></x-forms>
+                            @error('porsi')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <label class="block mb-2 font-medium dark:text-white">Tingkat Kesulitan</label>
+                            <select class="border border-gray-300 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" wire:model.defer="kesulitan">
+                                <option value=""></option>
+                                <option value="mudah">Mudah</option>
+                                <option value="sulit">Sulit</option>
+                            </select>
+                            @error('kesulitan')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
 
-                    <div class="mb-6 flex flex-wrap">
-                        <div class="w-full md:w-1/4 px-4">
-                            <x-forms for="regular-text" type="number" id="waktu" text="Kalori" placeholder=" " satuan="kkal"></x-forms>
+                    <div class="w-full mb-6 px-4 flex gap-x-4">
+                        <div class="w-full md:w-1/3">
+                            <x-forms wire:model.defer="kalori" for="regular-text" type="number" id="waktu" text="Kalori" satuan="kkal"></x-forms>
+                            @error('kalori')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="w-full md:w-1/4 px-4">
-                            <x-forms for="regular-text" type="number" id="waktu" text="Lemak" satuan="gram">
-                            </x-forms>
+                        <div class="w-full md:w-1/3">
+                            <x-forms wire:model.defer="lemak" for="regular-text" type="number" id="waktu" text="Lemak" satuan="gram"></x-forms>
+                            @error('lemak')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="w-full md:w-1/4 px-4">
-                            <x-forms for="regular-text" type="number" id="waktu" text="Karbohidrat" satuan="gram">
-                            </x-forms>
-                        </div>
-                        <div class="w-full md:w-1/4 px-4">
-                            <x-forms for="regular-text" type="number" id="waktu" text="Protein" satuan="gram">
-                            </x-forms>
+                        <div class="w-full md:w-1/3">
+                            <x-forms wire:model.defer="karbohidrat" for="regular-text" type="number" id="waktu" text="Karbohidrat" satuan="gram"></x-forms>
+                            @error('karbohidrat')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="mb-12 flex flex-wrap">
                         <div class="w-full md:w-2/3 px-4">
-                            <x-forms for="regular" type="number" id="waktu" text="Waktu Memasak" placeholder=" "></x-forms>
+                            <x-forms wire:model.defer="durasi" for="regular" type="number" id="waktu" text="Waktu Memasak" placeholder=" "></x-forms>
+                            @error('durasi')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="w-full md:w-1/3 px-4 mt-8">
-                            <select data-te-select-init class="bg-gray border border-gray-300 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option value="1">Menit</option>
-                                <option value="2">Jam</option>
+                            <select class="bg-gray border border-gray-300 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" wire:model.defer="tipe_durasi">
+                                <option value="menit">Menit</option>
+                                <option value="jam">Jam</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="flex justify-end">
-                        <x-button type="rounded" :with-gradient=false text="Selanjutnya" @click="Next('bahan')"></x-button>
+                        <x-button wire:click="ValidateKeterangan" type="rounded" :with-gradient=false text="Selanjutnya" @nextslide.window="Next($event.detail.data)"></x-button>
                     </div>
                 </div>
             </article>
@@ -136,33 +173,76 @@
                     <div class="w-full px-4">
                         <form class="flex items-center">
                             <div class="relative w-full">
-                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <div class="absolute inset-0 flex items-center pl-3 pointer-events-none">
                                     <svg aria-hidden="true" class="w-5 h-5 text-[#3E3E3E] dark:text-gray-400" fill="#3E3E3E" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
-                                <input type="text" id="search-bahan" class="bg-gray text-main border border-gray-300 text-sm focus:ring-primary focus:border-primary block w-full p-2.5 pl-10 rounded-lg" placeholder="Cari Bahan-Bahan..." required>
+                                <input wire:model="queryBahan" wire:click="$set('showResultBahan', true)" type="text" id="search-bahan" class="text-main border border-gray-300 text-sm focus:ring-primary focus:border-primary block w-full p-2.5 pl-10 rounded-lg" placeholder="Cari Bahan-Bahan..." required>
+
+                                <div wire:loading wire:target="queryBahan" class="absolute bg-amber-50 z-10 text-base font-medium text-gray-800 list-group w-full rounded-b-lg shadow-lg px-4 py-3 mt-1">
+                                    <li class="list-none">
+                                        {{-- <img alt="gallery" class="w-[29px] h-[24px] mx-auto" src="{{ asset('assets/images/search-loading-1.gif') }}"> --}}
+                                        <div class="custom-loader mx-auto my-2"></div>
+                                    </li>
+                                </div>
+
+                                @if($showResultBahan)
+                                <div class="overflow-y-scroll h-full max-h-screen" x-data="{ open: @entangle('showResultBahan') }" @click.outside="open = false">
+                                    <div class="absolute bg-amber-50 z-10 text-base font-medium text-gray-800 list-group w-full rounded-b-lg rounded-t-lg shadow-lg mt-1">
+                                        @if (!empty($listBahan))
+                                        <ul class="list-group">
+                                            @foreach ($listBahan as $item)
+                                            <li class="list-group-item hover:bg-blue-100 first:rounded-t-lg last:rounded-b-lg px-4 py-2 cursor-pointer" wire:click="selectBahan('{{ $item['id'] }}')">
+                                                <div class="inline-flex items-center">
+                                                    <img src="storage/images/bahan/{{ $item['image'] }}" alt="" class="w-[50px] h-[50px] rounded-lg">
+                                                    <span class="pl-3">{{ $item['nama_bahan'] }}</span>
+                                                </div>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                        @else
+                                        <li class="list-none px-4 py-3">Bahan tidak ditemukan</li>
+                                        @endif
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                         </form>
                     </div>
+                    @if (!empty($selectedBahan))
+                        @foreach ($selectedBahan as $_i => $_v)
+                        <div class="flex justify-end px-4">
+                            <div class=" mr-2 w-full ">
+                                <x-forms for="disabled" type="text" id="email" text="" placeholder="" value="{{ $_v['nama_bahan'] }}"></x-forms>
+                                @error('arrayOfBahan.'.$_i)
+                                <span class="text-sm text-red-500">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="mt-3">
+                                <button type="button" class="flex items-center justify-end" wire:click="deleteBahan('{{ $_v['id'] }}')">
+                                    <span>
+                                        <svg class="h-8 w-8 fill-gray hover:fill-[#FF0000] focus:fill-[#FFB03E] active:fill-[#FF0000]" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8.933-2.721-2.722c-.146-.146-.339-.219-.531-.219-.404 0-.75.324-.75.749 0 .193.073.384.219.531l2.722 2.722-2.728 2.728c-.147.147-.22.34-.22.531 0 .427.35.75.751.75.192 0 .384-.073.53-.219l2.728-2.728 2.729 2.728c.146.146.338.219.53.219.401 0 .75-.323.75-.75 0-.191-.073-.384-.22-.531l-2.727-2.728 2.717-2.717c.146-.147.219-.338.219-.531 0-.425-.346-.75-.75-.75-.192 0-.385.073-.531.22z" fill-rule="nonzero" />
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        @endforeach
+                    @else
                     <div class="flex justify-end px-4">
-                        <div class=" mr-2 w-full ">
-                            <x-forms for="disabled" type="text" id="email" text=" " value="Ayam">
-                            </x-forms>
+                        <div class="w-full">
+                            <x-forms for="disabled" type="text" id="email" text="" value="Input bahan terlebih dahulu"></x-forms>
+                            @error('arrayOfBahan.0')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="mt-3">
-                            <button class="flex items-center justify-end">
-                                <span>
-                                    <svg class="h-8 w-8 fill-gray hover:fill-[#FF0000] focus:fill-[#FFB03E] active:fill-[#FF0000]" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8.933-2.721-2.722c-.146-.146-.339-.219-.531-.219-.404 0-.75.324-.75.749 0 .193.073.384.219.531l2.722 2.722-2.728 2.728c-.147.147-.22.34-.22.531 0 .427.35.75.751.75.192 0 .384-.073.53-.219l2.728-2.728 2.729 2.728c.146.146.338.219.53.219.401 0 .75-.323.75-.75 0-.191-.073-.384-.22-.531l-2.727-2.728 2.717-2.717c.146-.147.219-.338.219-.531 0-.425-.346-.75-.75-.75-.192 0-.385.073-.531.22z" fill-rule="nonzero" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
-
                     </div>
+                    @endif
+                        
                     <div class="w-full mb-12 px-4">
-                        <x-forms for="regular" type="text" id="email" text=" " placeholder="Input Bahan Lainnya..."></x-forms>
+                        {{-- <x-forms for="regular" type="text" id="email" text=" " placeholder="Input Bahan Lainnya..."></x-forms> --}}
                     </div>
 
                     <div class="flex justify-end gap-2">
@@ -171,7 +251,7 @@
                                 <button type="button" class="px-6 py-2 rounded-full text-md font-bold text-plain bg-secondary group-hover:shadow-xl group-hover:-translate-x-1 group-hover:-translate-y-1 transition" @click="Previous('keterangan')">Sebelumnya</button>
                             </div>
                         </div>
-                        <x-button type="rounded" :with-gradient=false text="Selanjutnya" @click="Next('peralatan')"></x-button>
+                        <x-button wire:click="ValidateBahan" type="rounded" :with-gradient=false text="Selanjutnya" @nextslide.window="Next($event.detail.data)"></x-button>
                     </div>
                 </div>
             </article>
@@ -187,28 +267,71 @@
                                         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                                     </svg>
                                 </div>
-                                <input type="text" id="search-peralatan" class="bg-gray text-main border border-gray-300 text-sm focus:ring-primary focus:border-primary block w-full p-2.5 pl-10 rounded-lg" placeholder="Cari Alat Masak..." required>
+                                <input wire:model="queryPeralatan" wire:click="$set('showResultPeralatan', true)" type="text" id="search-peralatan" class="text-main border border-gray-300 text-sm focus:ring-primary focus:border-primary block w-full p-2.5 pl-10 rounded-lg" placeholder="Cari Peralatan..." required>
+
+                                <div wire:loading wire:target="queryPeralatan" class="absolute bg-amber-50 z-10 text-base font-medium text-gray-800 list-group w-full rounded-b-lg shadow-lg px-4 py-3 mt-1">
+                                    <li class="list-none">
+                                        {{-- <img alt="gallery" class="w-[29px] h-[24px] mx-auto" src="{{ asset('assets/images/search-loading-1.gif') }}"> --}}
+                                        <div class="custom-loader mx-auto my-2"></div>
+                                    </li>
+                                </div>
+
+                                @if($showResultPeralatan)
+                                <div class="overflow-y-scroll h-full max-h-screen" x-data="{ open: @entangle('showResultPeralatan') }" @click.outside="open = false">
+                                    <div class="absolute bg-amber-50 z-10 text-base font-medium text-gray-800 list-group w-full rounded-b-lg rounded-t-lg shadow-lg mt-1">
+                                        @if (!empty($listPeralatan))
+                                        <ul class="list-group">
+                                            @foreach ($listPeralatan as $item)
+                                            <li class="list-group-item hover:bg-blue-100 first:rounded-t-lg last:rounded-b-lg px-4 py-2 cursor-pointer" wire:click="selectPeralatan('{{ $item['id'] }}')">
+                                                <div class="inline-flex items-center">
+                                                    <img src="storage/images/bahan/{{ $item['image'] }}" alt="" class="w-[50px] h-[50px] rounded-lg">
+                                                    <span class="pl-3">{{ $item['nama_peralatan'] }}</span>
+                                                </div>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                        @else
+                                        <li class="list-none px-4 py-3">Peralatan tidak ditemukan</li>
+                                        @endif
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                         </form>
                     </div>
+                    @if (!empty($selectedPeralatan))
+                        @foreach ($selectedPeralatan as $_ii => $_vv)
+                        <div class="flex justify-end px-4">
+                            <div class=" mr-2 w-full ">
+                                <x-forms for="disabled" type="text" id="email" text="" placeholder="" value="{{ $_vv['nama_peralatan'] }}"></x-forms>
+                                @error('arrayOfPeralatan.'.$_ii)
+                                <span class="text-sm text-red-500">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="mt-3">
+                                <button type="button" class="flex items-center justify-end" wire:click="deletePeralatan('{{ $_vv['id'] }}')">
+                                    <span>
+                                        <svg class="h-8 w-8 fill-gray hover:fill-[#FF0000] focus:fill-[#FFB03E] active:fill-[#FF0000]" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8.933-2.721-2.722c-.146-.146-.339-.219-.531-.219-.404 0-.75.324-.75.749 0 .193.073.384.219.531l2.722 2.722-2.728 2.728c-.147.147-.22.34-.22.531 0 .427.35.75.751.75.192 0 .384-.073.53-.219l2.728-2.728 2.729 2.728c.146.146.338.219.53.219.401 0 .75-.323.75-.75 0-.191-.073-.384-.22-.531l-2.727-2.728 2.717-2.717c.146-.147.219-.338.219-.531 0-.425-.346-.75-.75-.75-.192 0-.385.073-.531.22z" fill-rule="nonzero" />
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        @endforeach
+                    @else
                     <div class="flex justify-end px-4">
-                        <div class=" mr-2 w-full ">
-                            <x-forms for="disabled" type="text" id="email" text=" " value="Panci">
-                            </x-forms>
+                        <div class="w-full">
+                            <x-forms for="disabled" type="text" id="email" text="" value="Input peralatan terlebih dahulu"></x-forms>
+                            @error('arrayOfPeralatan.0')
+                            <span class="text-sm text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
-                        <div class="mt-3">
-                            <button class="flex items-center justify-end">
-                                <span>
-                                    <svg class="h-8 w-8 fill-gray hover:fill-[#FF0000] focus:fill-[#FFB03E] active:fill-[#FF0000]" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8.933-2.721-2.722c-.146-.146-.339-.219-.531-.219-.404 0-.75.324-.75.749 0 .193.073.384.219.531l2.722 2.722-2.728 2.728c-.147.147-.22.34-.22.531 0 .427.35.75.751.75.192 0 .384-.073.53-.219l2.728-2.728 2.729 2.728c.146.146.338.219.53.219.401 0 .75-.323.75-.75 0-.191-.073-.384-.22-.531l-2.727-2.728 2.717-2.717c.146-.147.219-.338.219-.531 0-.425-.346-.75-.75-.75-.192 0-.385.073-.531.22z" fill-rule="nonzero" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
-    
                     </div>
+                    @endif
+                        
                     <div class="w-full mb-12 px-4">
-                        <x-forms for="regular" type="text" id="email" text=" " placeholder="Input Alat Masak Lainnya..."></x-forms>
+                        {{-- <x-forms for="regular" type="text" id="email" text=" " placeholder="Input Bahan Lainnya..."></x-forms> --}}
                     </div>
 
                     <div class="flex justify-end gap-2">
@@ -217,7 +340,7 @@
                                 <button type="button" class="px-6 py-2 rounded-full text-md font-bold text-plain bg-secondary group-hover:shadow-xl group-hover:-translate-x-1 group-hover:-translate-y-1 transition" @click="Previous('bahan')">Sebelumnya</button>
                             </div>
                         </div>
-                        <x-button type="rounded" :with-gradient=false text="Selanjutnya" @click="Next('langkah')"></x-button>
+                        <x-button wire:click="ValidatePeralatan" type="rounded" :with-gradient=false text="Selanjutnya" @nextslide.window="Next($event.detail.data)"></x-button>
                     </div>
                 </div>
             </article>
@@ -225,19 +348,19 @@
             <article id="langkah-memasak" class="basis-full" x-show="langkah" x-transition:enter="transition duration-500" x-transition:enter-start="transform translate-x-full" x-transition:enter-end="transform translate-x-0" x-transition:leave="transition duration-500" x-transition:leave-start="opacity-0 scale-0" x-transition:leave-end="opacity-0 -translate-x-full" x-cloak>
                 <div class="text-lg font-bold mb-4">Langkah Memasak</div>
                 <div class="px-8">
-                    <div class="mb-0 flex flex-wrap items-start">
+                    <div class="mb-0 flex flex-wrap justify-end">
                         <div class="w-full md:w-1/12 p-4">
                             <x-forms for="nomor-tahapan" nomor="1"></x-forms>
                         </div>
                         <div class="w-full md:w-6/12 p-4">
-                            <x-forms for="textarea-step" id="thumbnail" text="Tahap Memasak" placeholder=" ">
+                            <x-forms for="textarea-step" id="tahap" text="Tahap Memasak" placeholder=" ">
                             </x-forms>
                         </div>
                         <div class="w-full md:w-4/12 p-4">
                             <x-forms for="upload-image"></x-forms>
                         </div>
-                        <div class="w-full md:w-1/12 p-4">
-                            <button class="flex items-center  justify-end">
+                        <div class="w-full md:w-1/12 relative">
+                            <button class="absolute top-1 -right-3">
                                 <span>
                                     <svg class="h-8 w-8 fill-gray hover:fill-[#FF0000] focus:fill-[#FFB03E] active:fill-[#FF0000]" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 8.933-2.721-2.722c-.146-.146-.339-.219-.531-.219-.404 0-.75.324-.75.749 0 .193.073.384.219.531l2.722 2.722-2.728 2.728c-.147.147-.22.34-.22.531 0 .427.35.75.751.75.192 0 .384-.073.53-.219l2.728-2.728 2.729 2.728c.146.146.338.219.53.219.401 0 .75-.323.75-.75 0-.191-.073-.384-.22-.531l-2.727-2.728 2.717-2.717c.146-.147.219-.338.219-.531 0-.425-.346-.75-.75-.75-.192 0-.385.073-.531.22z" fill-rule="nonzero" />
@@ -253,7 +376,7 @@
                             <x-forms for="regular" type="number" id="waktu" text="Waktu Memasak" placeholder=" "></x-forms>
                         </div>
                         <div class="w-full md:w-5/12 px-4 mt-8">
-                            <select data-te-select-init class="bg-gray border border-gray-300 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select class="bg-gray border border-gray-300 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option value="1">Menit</option>
                                 <option value="2">Jam</option>
                             </select>
@@ -356,20 +479,17 @@
                 }
 
                 document.querySelector('#steps').scrollIntoView({block: 'start', inline: 'nearest', behavior: 'smooth'});
-            }
+            },
         }))
+        
     })
 
-    function showImage() {
-        return {
-            showPreview(event) {
-                if (event.target.files.length > 0) {
-                    var src = URL.createObjectURL(event.target.files[0]);
-                    var preview = document.getElementById("preview");
-                    preview.src = src;
-                    preview.style.display = "block";
-                }
-            }
+    function showPreview(event) {
+        if (event.target.files.length > 0) {
+            var src = URL.createObjectURL(event.target.files[0]);
+            var preview = document.getElementById("preview");
+            preview.src = src;
+            preview.style.display = "block";
         }
     }
 </script>

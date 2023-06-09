@@ -23,6 +23,6 @@ class SubKategori extends Model
      */
     public function categories()
     {
-        return $this->hasMany(Kategori::class, 'sub_kategori', 'id');
+        return $this->hasMany(Kategori::class, 'sub_kategori_id', 'id');
     }
 }

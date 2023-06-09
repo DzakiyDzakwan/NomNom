@@ -1,4 +1,4 @@
-<div class="px-2 py-2 md:w-1/4 lg:w-1/4 sm:w-1/2">
+<div class="pr-2 py-2 md:w-1/4 lg:w-1/4 sm:w-1/2">
     <a href="{{ route('recipe-detail', $data->id) }}">
         <div class="h-full rounded-2xl overflow-hidden shadow-md bg-white cursor-pointer">
             <div class="flex relative">

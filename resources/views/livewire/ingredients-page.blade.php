@@ -32,11 +32,11 @@
                 tepat.</p>
         </div>
 
-        <div class="my-8">
+        <div class="mt-8">
             @livewire('inline.search-bahan')
         </div>
 
-        <div class="my-8">
+        <div class="">
             <p class="font-medium text-base pt-1.5 text-gray-800 mb-5">Menampilkan <b>33</b> hasil pencarian berdasarkan
                 bahan yang dipilih</p>
             @livewire('inline.filter-button')

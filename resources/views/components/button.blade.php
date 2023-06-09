@@ -5,9 +5,8 @@
             {{ $text }}
         </button>
     @elseif($type == "rounded" && !$withGradient)
-        <div {{ $attributes->merge(['class' => 'group relative block h-full mx-auto before:absolute before:inset-0 before:rounded-full before:border-4 before:border-dotted before:border-primary']) }}>
-            <button type="button" class="px-6 py-2 rounded-full text-md font-bold text-plain group-hover:shadow-xl border-none bg-primary group-hover:-translate-x-1 group-hover:-translate-y-1 transition">
-                {{-- {{ $attributes }} --}}
+        <div {{ $attributes->except(['wire:click', '@click', 'disabled'])->merge(['class' => 'group relative block h-full mx-auto before:absolute before:inset-0 before:rounded-full before:border-4 before:border-dotted before:border-primary']) }}>
+            <button {{ $attributes->only(['@click', 'disabled']) }} {{ $attributes->wire('click') }} type="button" class="px-6 py-2 rounded-full text-md font-bold text-plain group-hover:shadow-xl border-none bg-primary group-hover:-translate-x-1 group-hover:-translate-y-1 transition">
                 {{ $text }}
             </button>
         </div>

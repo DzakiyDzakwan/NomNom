@@ -7,7 +7,7 @@
             <input type="{{ $type }}" placeholder="{{ $placeholder }}" {{ $attributes->wire('model') }} autocomplete="false" class="bg-gray border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         @elseif($for == 'disabled')
             <label for="{{ $id }}" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">{{ $text }}</label>
-            <input type="{{ $type }}" {{ $attributes->wire('model') }} disabled class="bg-gray border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <input type="{{ $type }}" {{ $attributes->wire('model') }} value="{{$value}}" disabled class="bg-gray border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         @elseif($for == 'regular-text')
             <div class="flex justify-between">
                 <label for="{{ $id }}" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">{{ $text }}</label>
@@ -25,8 +25,8 @@
             </label>
             <input type="file" {{ $attributes->wire('model') }} class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300   text-sm text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-primary file:px-8 file:py-[1rem] file:text-white file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary" type="file" id="formFile" />
         @elseif ($for == 'textarea')
-            <label for="{{ $id }}" {{ $attributes->wire('model') }} class="block mb-2 text-base font-medium text-gray-900 dark:text-white">{{ $text }}</label>
-            <textarea rows="4" id=" {{ $id }} " class="bg-gray border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+            <label for="{{ $id }}" class="block mb-2 text-base font-medium text-gray-900 dark:text-white">{{ $text }}</label>
+            <textarea rows="4" id="{{ $id }}" {{ $attributes->wire('model') }} class="bg-gray border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
         @elseif ($for == 'nomor-tahapan')
             <div class="flex justify-center items-center">
                 <div class="rounded-full flex justify-center items-center">

@@ -16,7 +16,8 @@ class SearchBahan extends Component
     public function mount()
     {
         $data = Bahan::all();
-        foreach ($data as $item) {
+        foreach ($data as $item)
+        {
             $this->bahan[] = $item;
             $this->listBahan[] = $item;
         }
@@ -31,10 +32,12 @@ class SearchBahan extends Component
     {
         sleep(1);
         $this->listBahan = [];
-        foreach ($this->bahan as $item) {
-           if(str_contains(strtolower($item['nama_bahan']), strtolower($this->query))) {
-            $this->listBahan[] = $item;
-           }
+        foreach ($this->bahan as $item)
+        {
+            if (str_contains(strtolower($item['nama_bahan']), strtolower($this->query)))
+            {
+                $this->listBahan[] = $item;
+            }
         }
     }
 
@@ -43,44 +46,50 @@ class SearchBahan extends Component
         return view('livewire.inline.search-bahan');
     }
 
-    public function selectBahan($id) {
-        foreach ($this->bahan as $data) {
-            if(in_array($id, $data)) {
+    public function selectBahan($id)
+    {
+        foreach ($this->bahan as $data)
+        {
+            if (in_array($id, $data))
+            {
                 $this->selectedBahan[] = $data;
             }
         }
 
-        $this->bahan = array_udiff($this->bahan, $this->selectedBahan, function($a, $b) {
-            if ($a===$b)
+        $this->bahan = array_udiff($this->bahan, $this->selectedBahan, function ($a, $b)
+        {
+            if ($a === $b)
             {
                 return 0;
             }
-                return ($a>$b)?1:-1;
+            return ($a > $b) ? 1 : -1;
         });
 
         $this->listBahan = $this->bahan;
         $this->query = '';
 
-        $this->emit('searchIngredient' , $id);
-
+        $this->emit('searchIngredient', $id);
     }
 
-    public function deleteTag($id) {
-        foreach ($this->selectedBahan as $data) {
-            if(in_array($id, $data)) {
+    public function deleteTag($id)
+    {
+        foreach ($this->selectedBahan as $data)
+        {
+            if (in_array($id, $data))
+            {
                 $this->bahan[] = $data;
             }
         }
 
-        $this->selectedBahan = array_udiff($this->selectedBahan, $this->bahan, function($a, $b) {
-            if ($a===$b)
+        $this->selectedBahan = array_udiff($this->selectedBahan, $this->bahan, function ($a, $b)
+        {
+            if ($a === $b)
             {
                 return 0;
             }
-                return ($a>$b)?1:-1;
+            return ($a > $b) ? 1 : -1;
         });
 
         $this->listBahan = $this->bahan;
-
     }
 }
