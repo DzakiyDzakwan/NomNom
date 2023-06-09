@@ -55,7 +55,7 @@ class Navbar extends Component
             if (Auth::attempt(['username' => $this->username, 'password' => $this->password])) {
                 $this->reset();
                 session()->regenerate();
-                $this->dispatchBrowserEvent('closemodal', ['pesan' => 'berhasil yeay']);
+                $this->dispatchBrowserEvent('closemodal', ['pesan' => 'Berhasil!']);
             }
         } catch (\Throwable $th) {
             dd($th);
@@ -84,7 +84,7 @@ class Navbar extends Component
         if (Auth::attempt(['username' => $this->username, 'password' => $this->password])) {
             $this->reset();
             session()->regenerate();
-            $this->dispatchBrowserEvent('closemodal', ['pesan' => 'berhasil yeay']);
+            $this->dispatchBrowserEvent('closemodal', ['pesan' => 'Berhasil!']);
         }
     }
 

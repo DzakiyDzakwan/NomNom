@@ -72,7 +72,7 @@ class BiodataSection extends Component
                     'bio' => $this->bio
                 ]);
 
-            $this->dispatchBrowserEvent('closemodal', ['pesan' => 'berhasil yeay']);
+            $this->dispatchBrowserEvent('closemodal', ['pesan' => 'Berhasil!']);
         } catch (\Throwable $th) {
             dd($th);
         }

@@ -5,15 +5,19 @@
             <ol role="list" class="flex items-center gap-1 text-sm text-gray-500">
                 <li>
                     <a href="/" class="block transition hover:text-gray-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                         </svg>
                     </a>
                 </li>
 
                 <li class="rtl:rotate-180">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd" />
                     </svg>
                 </li>
 
@@ -23,21 +27,24 @@
 
                 <li class="rtl:rotate-180">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd" />
                     </svg>
                 </li>
-                
+
                 <li>
                     <a href="#" class="block transition hover:text-gray-700"> {{ $detail->nama_resep }} </a>
                 </li>
-                
+
             </ol>
         </nav>
     </section>
 
     <div class="flex flex-col md:flex-row gap-8 mx-32 h-screen md:h-[24rem] rounded">
         <div class="container md:basis-1/2">
-            <img alt="gallery" class="h-full w-full rounded-xl shadow-md" src="{{asset('/storage/images/resep/'.$detail->image)}}">
+            <img alt="gallery" class="h-full w-full rounded-xl shadow-md"
+                src="{{ asset('/storage/images/resep/' . $detail->image) }}">
         </div>
 
         <div class="basis-1/2 space-y-4">
@@ -46,28 +53,37 @@
             </h1>
 
             <?php
-                $date = strtotime($detail->created_at);
+            $date = strtotime($detail->created_at);
             ?>
 
-            <small class="text-sm font-light">By : {{ $detail->chef->username }} &nbsp; | &nbsp;  At : {{date('M d, Y', $date)}}</small>
+            <small class="text-sm font-light">By : {{ $detail->chef->username }} &nbsp; | &nbsp; At :
+                {{ date('M d, Y', $date) }}</small>
 
             <h3 class="text-base leading-normal font-medium">{{ $detail->deskripsi }}</h3>
 
             <div class="flex items-center justify-between" id="difficulty-time">
                 <div class="flex items-center gap-2">
-                    <a class="inline-block rounded bg-primary p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75" href="/download">
-                        <span class="flex gap-2 rounded-sm bg-white text-primary hover:bg-transparent hover:text-plain font-black duration-500 px-4 py-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <a class="inline-block rounded bg-primary p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+                        href="/download">
+                        <span
+                            class="flex gap-2 rounded-sm bg-white text-primary hover:bg-transparent hover:text-plain font-black duration-500 px-4 py-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
 
                             {{ Str::title($detail->durasi) }}
                         </span>
                     </a>
-                    <a class="inline-block rounded bg-primary p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75" href="/download">
-                        <span class="flex gap-2 rounded-sm bg-white text-primary hover:bg-transparent hover:text-plain font-black duration-500 px-4 py-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                    <a class="inline-block rounded bg-primary p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+                        href="/download">
+                        <span
+                            class="flex gap-2 rounded-sm bg-white text-primary hover:bg-transparent hover:text-plain font-black duration-500 px-4 py-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                             </svg>
 
                             {{ Str::title($detail->kesulitan) }}
@@ -75,33 +91,52 @@
                     </a>
                 </div>
 
-                <button class="rounded text-primary focus:ring-2 focus:ring-offset-2 focus:ring-primary hover:scale-110 transition duration-300" title="Add to Favorite">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9" />
+                <button
+                    class="rounded text-primary focus:ring-2 focus:ring-offset-2 focus:ring-primary hover:scale-110 transition duration-300"
+                    title="Add to Favorite">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-10 h-10">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9" />
                     </svg>
                 </button>
             </div>
 
             <div class="flex items-center border-y-2 py-1">
-                <svg aria-hidden="true" class="w-8 h-8 text-yellow" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <svg aria-hidden="true" class="w-8 h-8 text-yellow" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
                     <title>First star</title>
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                    </path>
                 </svg>
-                <svg aria-hidden="true" class="w-8 h-8 text-yellow" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <svg aria-hidden="true" class="w-8 h-8 text-yellow" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
                     <title>Second star</title>
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                    </path>
                 </svg>
-                <svg aria-hidden="true" class="w-8 h-8 text-yellow" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <svg aria-hidden="true" class="w-8 h-8 text-yellow" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
                     <title>Third star</title>
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                    </path>
                 </svg>
-                <svg aria-hidden="true" class="w-8 h-8 text-yellow" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <svg aria-hidden="true" class="w-8 h-8 text-yellow" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
                     <title>Fourth star</title>
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                    </path>
                 </svg>
-                <svg aria-hidden="true" class="w-8 h-8 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <svg aria-hidden="true" class="w-8 h-8 text-gray-300 dark:text-gray-500" fill="currentColor"
+                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <title>Fifth star</title>
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                    </path>
                 </svg>
 
                 <div class="group relative self-end ml-auto inline-block rounded bg-transparent">
@@ -152,11 +187,14 @@
         <div class="flex items-start justify-between gap-2">
             <div class="basis-2/6 space-y-4 border-r">
                 <h1 class="text-3xl font-bold">Porsi</h1>
-                <span class="inline-flex items-center justify-center rounded-full bg-transparent border-2 border-[#FFB03E] px-3 py-1 text-[#FFB03E] mt-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />                </svg>
-                <p class="pl-2 whitespace-nowrap text-base font-medium">{{ $detail->porsi }} Porsi</p>
-            </span>
+                <span
+                    class="inline-flex items-center justify-center rounded-full bg-transparent border-2 border-[#FFB03E] px-3 py-1 text-[#FFB03E] mt-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                    </svg>
+                    <p class="pl-2 whitespace-nowrap text-base font-medium">{{ $detail->porsi }} Porsi</p>
+                </span>
                 <h1 class="text-3xl font-bold">Bahan</h1>
                 <ul class="list-disc list-inside">
                     @foreach ($detail->ingredients()->get() as $item)
@@ -177,9 +215,9 @@
 
             <div class="basis-4/6 space-y-8">
                 <h1 class="text-3xl font-bold">Cara membuat</h1>
-                    @foreach ($detail->tahapan()->get() as $item)
-                        @livewire('inline.step', ['data' => $item], key($item->urutan))
-                    @endforeach
+                @foreach ($detail->tahapan()->get() as $item)
+                    @livewire('inline.step', ['data' => $item], key($item->urutan))
+                @endforeach
             </div>
         </div>
 
@@ -187,13 +225,24 @@
         <div class="flex items-center justify-between" id="tags">
             <div class="flex items-center gap-2">
                 @foreach ($detail->categories()->get() as $item)
-                    <div class="inline-block rounded-full border-2 border-[#FFB03E] px-2 py-1 text-[#FFB03E] shadow-sm">
+                    <div
+                        class="inline-block rounded-full border-2 border-[#FFB03E] px-2 py-1 text-[#FFB03E] shadow-sm">
                         <span class="flex gap-2 rounded-sm text-primary font-semibold px-4">
                             {{ $item->nama_kategori }}
                         </span>
                     </div>
                 @endforeach
             </div>
+        </div>
+
+
+        <div class="flex">
+            <h1 class="text-3xl font-bold">Reviews</h1>
+            <h5 class="mt-2">(5)</h5>
+        </div>
+
+        <div class="flex items-center justify-between" id="tags">
+            @livewire('review')
         </div>
     </div>
 </div>
